@@ -5,7 +5,7 @@ import { createConfigFiles, installDependencies } from 'lib/typescript-config.ts
 
 export const typescriptCli = new Command()
   .command('typescript')
-  .description('Setting typescript file')
+  .description('Setup typescript file')
   .action(async () => typescript());
 export const typescript = async () => {
   const typescriptConfigFiles = ['.tsconfig.json'];

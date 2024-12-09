@@ -36,7 +36,7 @@ const installDependencies = async (): Promise<void> => {
 };
 
 /**
- * Setting typescript file
+ * Setup typescript file
  * @returns {void}
  */
 const createConfigFiles = (): void => {

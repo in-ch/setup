@@ -4,7 +4,7 @@ import { checkbox } from '@inquirer/prompts';
 
 export const initCli = new Command()
   .command('init')
-  .description('Easy setting files')
+  .description('Easy Setup various configs')
   .action(async () => {
     const results: CommandsTypes[] = await checkbox({
       message: 'Which files do you want to install?\n',

@@ -6,7 +6,7 @@ import { confirm } from '@inquirer/prompts';
 
 export const eslintCli = new Command()
   .command('eslint')
-  .description('Setting eslint file')
+  .description('Setup eslint file')
   .action(async () => eslint());
 export const eslint = async () => {
   const eslintConfigFiles = [

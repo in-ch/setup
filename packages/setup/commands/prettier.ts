@@ -6,7 +6,7 @@ import { confirm } from '@inquirer/prompts';
 
 export const prettierCli = new Command()
   .command('prettier')
-  .description('Setting prettier file')
+  .description('Setup prettier file')
   .action(async () => prettier());
 export const prettier = async () => {
   const prettierConfigFiles = [
