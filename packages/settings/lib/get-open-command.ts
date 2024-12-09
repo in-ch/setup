@@ -1,9 +1,9 @@
 import os from 'os';
 
 /**
- * @param {string} filepath
+ * @param {string} filepath file path
  * @description Get code open command
- * @returns {string}
+ * @returns {string} Return the command to open a file for each os
  */
 export default function getOpenCommand(filepath: string): string {
   const platform = os.platform();

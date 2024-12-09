@@ -7,7 +7,7 @@ export const initCli = new Command()
   .description('Easy setting files')
   .action(async () => {
     const results: CommandsTypes[] = await checkbox({
-      message: 'Which files do you want to install?',
+      message: 'Which files do you want to install?\n',
       choices: commandChoices,
     });
     for (const result of results) {
