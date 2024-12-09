@@ -1,10 +1,8 @@
 #!/usr/bin/env node
-
 import { Command } from 'commander';
-import { confirm } from '@inquirer/prompts';
 import { existsSync } from 'fs';
-
 import { createConfigFiles, installDependencies } from 'lib/prettier-config.ts';
+import { confirm } from '@inquirer/prompts';
 
 export const prettierCli = new Command()
   .command('prettier')
@@ -21,7 +19,7 @@ export const prettier = async () => {
     'prettier.config.js',
     'prettier.config.cjs',
   ];
-  const existingConfigs = prettierConfigFiles.filter((file) => existsSync(file));
+  const existingConfigs = prettierConfigFiles.filter(file => existsSync(file));
   if (existingConfigs.length > 0) {
     const overwrite = await confirm({
       message: 'At least one Prettier file exists. Do you still want to proceed with the setup?',

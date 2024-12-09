@@ -1,10 +1,9 @@
-import { Command } from 'commander';
-import { select } from '@inquirer/prompts';
 import { exec } from 'child_process';
-
+import { Command } from 'commander';
+import { commandChoices, CommandsTypes } from 'const/commands.ts';
 import getOpenCommand from 'lib/get-open-command.ts';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
-import { commandChoices, CommandsTypes } from 'const/commands.ts';
+import { select } from '@inquirer/prompts';
 
 export const editCli = new Command()
   .command('edit')
@@ -16,7 +15,7 @@ export const editCli = new Command()
     });
     const path = getSettingFilePath(file);
     const command = getOpenCommand(path);
-    exec(command, (err) => {
+    exec(command, err => {
       if (err) {
         console.error('Failed to open file or folder:', err);
       } else {

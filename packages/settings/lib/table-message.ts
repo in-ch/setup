@@ -26,37 +26,27 @@ export default function tableMessage({
   const { rows, column } = convertFromObjects(data);
   const borderColorCode = colorMap[borderColor ?? 'default'];
   const headerColorCode = colorMap[headerColor ?? 'default'];
-  const textColorCode = colorMap[textColor ?? 'default']
+  const textColorCode = colorMap[textColor ?? 'default'];
 
-  const initialLength = column.map((message) => message.length + 2);
+  const initialLength = column.map(message => message.length + 2);
   const boxWidths = initialLength.map((col, index) => {
-    return rows.reduce((length, row) => Math.max((row[index]!).length + 2, length), col);
+    return rows.reduce((length, row) => Math.max(row[index]!.length + 2, length), col);
   });
-  const padIndex = (str: string, index: number) =>
-    `${textColorCode}${str.padEnd(boxWidths[index]!)}`;
-  const padHeaderIndex = (str: string, index: number) =>
-    `${headerColorCode}${str.padEnd(boxWidths[index]!)}`;
+  const padIndex = (str: string, index: number) => `${textColorCode}${str.padEnd(boxWidths[index]!)}`;
+  const padHeaderIndex = (str: string, index: number) => `${headerColorCode}${str.padEnd(boxWidths[index]!)}`;
   const drawHeaderTopBoder = () =>
-    `${borderColorCode}┌${column
-      .map((_, index) => ''.padEnd(boxWidths[index]! + 1, `─`))
-      .join('┬')}┐`;
+    `${borderColorCode}┌${column.map((_, index) => ''.padEnd(boxWidths[index]! + 1, `─`)).join('┬')}┐`;
   const drawHeaderBottomBoder = () =>
-    `${borderColorCode}├${column
-      .map((_, index) => ''.padEnd(boxWidths[index]! + 1, `─`))
-      .join('┼')}┤`;
+    `${borderColorCode}├${column.map((_, index) => ''.padEnd(boxWidths[index]! + 1, `─`)).join('┼')}┤`;
   const drawFooterBottomBoder = () =>
-    `${borderColorCode}└${column
-      .map((_, index) => ''.padEnd(boxWidths[index]! + 1, `─`))
-      .join('┴')}┘`;
+    `${borderColorCode}└${column.map((_, index) => ''.padEnd(boxWidths[index]! + 1, `─`)).join('┴')}┘`;
 
   let table = '';
   // Draw the top border
   table += drawHeaderTopBoder() + '\n';
-  table += `${borderColorCode}│ ${column
-    .map(padHeaderIndex)
-    .join(`${borderColorCode}│ `)}${borderColorCode}│\n`;
+  table += `${borderColorCode}│ ${column.map(padHeaderIndex).join(`${borderColorCode}│ `)}${borderColorCode}│\n`;
   table += drawHeaderBottomBoder() + '\n';
-  rows.forEach((row) => {
+  rows.forEach(row => {
     table += `${borderColorCode}│ ${row.map(padIndex).join(`${borderColorCode}│ `)}│\n`;
   });
   // Draw the bottom border

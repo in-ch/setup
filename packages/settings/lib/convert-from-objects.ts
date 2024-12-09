@@ -17,6 +17,6 @@ export default function convertFromObjects(data: Row[]): ConvertedData {
     return { column: [], rows: [] };
   }
   const column = Object.keys(data[0]);
-  const rows = data.map((row) => column.map((key) => row[key] || ''));
+  const rows = data.map(row => column.map(key => row[key] || ''));
   return { column, rows };
 }

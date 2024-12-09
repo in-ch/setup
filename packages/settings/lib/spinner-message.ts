@@ -6,11 +6,7 @@ import readline from 'readline';
  * @param {number} [ms] - The time in milliseconds
  * @returns {start: () => void; stop: () => void} - The start and stop functions.
  */
-export default function createSpinnerMessage({
-  spinnerChars = ['|', '/', '-', '\\'],
-  ms = 100,
-  message = '',
-}): {
+export default function createSpinnerMessage({ spinnerChars = ['|', '/', '-', '\\'], ms = 100, message = '' }): {
   start: () => void;
   stop: () => void;
 } {

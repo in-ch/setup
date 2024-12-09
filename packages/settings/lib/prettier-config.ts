@@ -1,16 +1,34 @@
-import fs from 'fs';
-import path from 'path';
 import { execSync } from 'child_process';
-import getSettingFilePath from 'lib/get-setting-file-path.ts';
 import { COMMANDS } from 'const/commands.ts';
+import { packageManagerChoices } from 'const/packagesMng.ts';
+import fs from 'fs';
+import detectPackageManager from 'lib/detect-package-manger.ts';
+import getSettingFilePath from 'lib/get-setting-file-path.ts';
+import path from 'path';
+import { select } from '@inquirer/prompts';
 
-const installDependencies = () => {
-  console.log('prettier 패키지 설치 중...');
+const installDependencies = async (): Promise<void> => {
+  console.log('\nInstalling prettier dependencies...\n');
   try {
-    execSync(
-      'yarn add -D prettier prettier-plugin-sort-re-exports @trivago/prettier-plugin-sort-imports',
-      { stdio: 'inherit' },
-    );
+    const dependencies = 'prettier prettier-plugin-sort-re-exports @trivago/prettier-plugin-sort-imports';
+    let packageMng = detectPackageManager();
+    if (packageMng === 'default') {
+      console.log(
+        'The package manager could not be detected. \n\n1. If this is not the project root, please run the command from the root directory. \n2. If you have not installed the packages beforehand, please install them first and then try again.\n\n'
+      );
+      if (packageMng === 'default') {
+        const answer = await select({
+          message: 'Which package manager would you like to use for installation? \n',
+          choices: packageManagerChoices,
+        });
+        if (answer === 'cancel') {
+          return;
+        }
+        packageMng = answer;
+      }
+    }
+    const installCommand = `${packageMng} ${dependencies}`;
+    execSync(`${installCommand} -D`, { stdio: 'inherit' });
   } catch (error) {
     console.error('🥲 패키지 설치에 실패했습니다.');
     process.exit(1);

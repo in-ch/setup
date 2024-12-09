@@ -66,17 +66,13 @@ export default function boxedMessage({
   };
 
   const borderTop = `${borderColorCode}${ltEdge}${'─'.repeat(boxWidth + 2)}${rtEdge}${defaultCode}`;
-  const borderBottom = `${borderColorCode}${lbEdge}${'─'.repeat(
-    boxWidth + 2,
-  )}${rbEdge}${defaultCode}`;
+  const borderBottom = `${borderColorCode}${lbEdge}${'─'.repeat(boxWidth + 2)}${rbEdge}${defaultCode}`;
   const emptyLine = `${borderColorCode}│${' '.repeat(boxWidth + 2)}│${defaultCode}`;
 
   const adjustedMessages = messages.slice(0, maxHeight - 2);
   const paddedMessages = adjustedMessages.map(
     (message: string) =>
-      `${borderColorCode}│ ${textColorCode}${pad(
-        message,
-      )}${defaultCode} ${borderColorCode}│${defaultCode}`,
+      `${borderColorCode}│ ${textColorCode}${pad(message)}${defaultCode} ${borderColorCode}│${defaultCode}`
   );
 
   while (paddedMessages.length < minHeight - 2) {

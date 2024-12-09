@@ -1,1 +1,1 @@
-# settings
+# setup

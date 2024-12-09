@@ -16,6 +16,11 @@ export default [
       '**/*.d.ts',
       '**/*.tgz',
       'node_modules/**',
+      '.env',
+      '.env.*',
+      '*.log',
+      'logs/',
+      'build/',
     ],
   },
   {
@@ -102,10 +107,7 @@ export default [
       ],
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        { ignoreRestSiblings: true, caughtErrors: 'none' },
-      ],
+      '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true, caughtErrors: 'none' }],
       '@typescript-eslint/member-ordering': [
         'error',
         {

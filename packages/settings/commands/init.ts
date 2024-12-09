@@ -1,7 +1,6 @@
 import { Command } from 'commander';
+import { commandChoices, commandFuc, CommandsTypes } from 'const/commands.ts';
 import { checkbox } from '@inquirer/prompts';
-
-import { CommandsTypes, commandFuc, commandChoices } from 'const/commands.ts';
 
 export const initCli = new Command()
   .command('init')
@@ -12,7 +11,7 @@ export const initCli = new Command()
       choices: commandChoices,
     });
     for (const result of results) {
-      if(commandFuc[result] !== undefined) {
+      if (commandFuc[result] !== undefined) {
         await commandFuc[result]();
       }
     }
