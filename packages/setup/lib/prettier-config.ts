@@ -30,7 +30,7 @@ const installDependencies = async (): Promise<void> => {
     const installCommand = `${packageMng} ${dependencies}`;
     execSync(`${installCommand} -D`, { stdio: 'inherit' });
   } catch (error) {
-    console.error('🥲 패키지 설치에 실패했습니다.');
+    console.error('🥲 Fail to install prettier dependencies.... to \n' + error);
     process.exit(1);
   }
 };
@@ -61,7 +61,7 @@ pnpm-lock.yaml`;
     fs.writeFileSync(path.join(rootDir, '.prettierignore '), prettierIgnore, 'utf-8');
     console.log('🎉 prettier 설정 파일이 생성되었습니다.');
   } catch (error) {
-    console.error('🥲 설정 파일 생성에 실패했습니다:', error);
+    console.error('🥲 Failed to setup prettier... to  \n', error);
     process.exit(1);
   }
 };

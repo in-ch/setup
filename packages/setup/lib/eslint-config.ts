@@ -47,7 +47,7 @@ const createConfigFiles = (): void => {
     fs.writeFileSync(path.join(rootDir, '.eslintrc.config.mjs'), eslintConfig, 'utf-8');
     console.log('\n🎉 Successfully created the ESLint configuration file.');
   } catch (error) {
-    console.error('🥲 🥲 🥲 Failed to install dependencies... to  ', error);
+    console.error('🥲 🥲 🥲 Failed to setup eslint... to\n', error);
     process.exit(1);
   }
 };

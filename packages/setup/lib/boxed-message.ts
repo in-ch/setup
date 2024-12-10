@@ -78,9 +78,6 @@ export default function boxedMessage({
   while (paddedMessages.length < minHeight - 2) {
     paddedMessages.push(emptyLine);
   }
-
-  console.log({ messages });
-
   const boxedMessage = [borderTop, emptyLine, ...paddedMessages, borderBottom].join('\n');
 
   return boxedMessage;

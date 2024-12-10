@@ -1,3 +1,4 @@
+import { extension } from 'const/commands.ts';
 import path from 'path';
 
 /**
@@ -11,9 +12,9 @@ export default function getSettingFilePath(file: string): string {
   }
   const isDevMode = process.env.NODE_ENV === 'development' || true;
   if (isDevMode) {
-    return path.resolve(process.cwd(), 'const/config', file) + '.js';
+    return path.resolve(process.cwd(), 'const/config', file) + extension[file];
   } else {
     const packagePath = path.dirname(require.resolve('@in-ch/setup/package.json'));
-    return path.resolve(packagePath, file) + '.js';
+    return path.resolve(packagePath, file) + extension[file];
   }
 }
