@@ -2,6 +2,7 @@ import { Command } from 'commander';
 import { editCli } from 'commands/edit.ts';
 import { eslintCli } from 'commands/eslint.ts';
 import { gitmessageCli } from 'commands/gitmessage.ts';
+import { huskyCli } from 'commands/husky.ts';
 import { initCli } from 'commands/init.ts';
 import { listCli } from 'commands/list.ts';
 import { prettierCli } from 'commands/prettier.ts';
@@ -24,6 +25,7 @@ async function main() {
   program.addCommand(editCli);
   program.addCommand(typescriptCli);
   program.addCommand(gitmessageCli);
+  program.addCommand(huskyCli);
   program.parse();
 }
 
