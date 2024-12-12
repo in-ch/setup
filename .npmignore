@@ -1,0 +1,9 @@
+node_modules
+example
+.github
+.yarn
+.changeset
+.editorconfig
+coverage
+demos
+__test__

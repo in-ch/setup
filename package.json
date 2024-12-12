@@ -1,13 +1,12 @@
 {
-  "name": "@in-ch/utils",
-  "description": "😌 very simple utils",
-  "private": true,
+  "name": "setup-workspace",
+  "description": "A tool for quick setup and configuration of essential project files.",
   "type": "commonjs",
+  "private": "false",
   "scripts": {
     "test": "pnpm recursive run test",
     "build": "pnpm recursive run build",
     "prepare": "husky",
-    "publish": "pnpm recursive run publish",
     "bench": "pnpm vitest bench"
   },
   "lint-staged": {
