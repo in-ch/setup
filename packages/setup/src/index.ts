@@ -1,4 +1,5 @@
 import { Command } from 'commander';
+import { commitlintCli } from 'commands/commitlint.ts';
 import { editCli } from 'commands/edit.ts';
 import { eslintCli } from 'commands/eslint.ts';
 import { gitmessageCli } from 'commands/gitmessage.ts';
@@ -26,6 +27,7 @@ async function main() {
   program.addCommand(typescriptCli);
   program.addCommand(gitmessageCli);
   program.addCommand(huskyCli);
+  program.addCommand(commitlintCli);
   program.parse();
 }
 
