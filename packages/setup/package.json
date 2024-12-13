@@ -34,8 +34,10 @@
     "typescript-eslint": "^8.16.0"
   },
   "type": "module",
-  "exports": "./dist/index.js",
-  "bin": "./dist/index.js",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
   "files": [
     "dist"
   ],
