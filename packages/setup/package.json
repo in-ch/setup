@@ -38,6 +38,10 @@
     "import": "./dist/index.js",
     "require": "./dist/index.cjs"
   },
+  "bin": {
+    "setup": "./bin/setup.js",
+    "ics": "./bin/setup.js"
+  },
   "files": [
     "dist"
   ],
