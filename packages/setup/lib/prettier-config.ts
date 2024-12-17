@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
 import { COMMANDS } from 'const/commands.ts';
-import { packageManagerChoices } from 'const/packagesMng.ts';
+import { packageManagerInstallChoices } from 'const/packagesMng.ts';
 import fs from 'fs';
 import detectPackageManager from 'lib/detect-package-manger.ts';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
@@ -19,7 +19,7 @@ const installDependencies = async (): Promise<void> => {
       if (packageMng === 'default') {
         const answer = await select({
           message: 'Which package manager would you like to use for installation? \n',
-          choices: packageManagerChoices,
+          choices: packageManagerInstallChoices,
         });
         if (answer === 'cancel') {
           return;

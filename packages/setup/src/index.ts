@@ -6,6 +6,7 @@ import { gitmessageCli } from 'commands/gitmessage.ts';
 import { huskyCli } from 'commands/husky.ts';
 import { initCli } from 'commands/init.ts';
 import { listCli } from 'commands/list.ts';
+import { pkgmngCli } from 'commands/pkgmng.ts';
 import { prettierCli } from 'commands/prettier.ts';
 import { typescriptCli } from 'commands/typescript.ts';
 import { getPackageInfo } from 'lib/get-package-info.ts';
@@ -28,6 +29,7 @@ async function main() {
   program.addCommand(gitmessageCli);
   program.addCommand(huskyCli);
   program.addCommand(commitlintCli);
+  program.addCommand(pkgmngCli);
   program.parse();
 }
 
