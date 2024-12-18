@@ -5,6 +5,7 @@ import { eslintCli } from 'commands/eslint.ts';
 import { gitmessageCli } from 'commands/gitmessage.ts';
 import { huskyCli } from 'commands/husky.ts';
 import { initCli } from 'commands/init.ts';
+import { lighthouseCli } from 'commands/lighthouse.ts';
 import { listCli } from 'commands/list.ts';
 import { pkgmngCli } from 'commands/pkgmng.ts';
 import { prettierCli } from 'commands/prettier.ts';
@@ -30,6 +31,7 @@ async function main() {
   program.addCommand(huskyCli);
   program.addCommand(commitlintCli);
   program.addCommand(pkgmngCli);
+  program.addCommand(lighthouseCli);
   program.parse();
 }
 
