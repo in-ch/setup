@@ -1,6 +1,6 @@
 {
   "name": "@in-ch/setup",
-  "version": "0.0.1-beta",
+  "version": "0.0.1-rc1",
   "description": "A tool for quick setup and configuration of essential project files.",
   "scripts": {
     "dev": "tsup --watch",
