@@ -1,6 +1,6 @@
 {
   "name": "@in-ch/setup",
-  "version": "0.0.1-rc1",
+  "version": "0.0.1-rc2",
   "description": "A tool for quick setup and configuration of essential project files.",
   "scripts": {
     "dev": "tsup --watch",
@@ -39,8 +39,8 @@
     "require": "./dist/index.cjs"
   },
   "bin": {
-    "setup": "./bin/setup.js",
-    "ics": "./bin/setup.js"
+    "setup": "./dist/index.js",
+    "ics": "./dist/index.js"
   },
   "files": [
     "dist"
