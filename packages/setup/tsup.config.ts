@@ -11,6 +11,6 @@ export default defineConfig({
   target: 'esnext',
   outDir: 'dist',
   banner: {
-    js: "#!/usr/bin/env node", 
-  }
+    js: '#!/usr/bin/env node',
+  },
 });

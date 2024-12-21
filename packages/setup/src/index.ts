@@ -11,11 +11,13 @@ import { pkgmngCli } from 'commands/pkgmng.ts';
 import { prettierCli } from 'commands/prettier.ts';
 import { typescriptCli } from 'commands/typescript.ts';
 import { getPackageInfo } from 'lib/get-package-info.ts';
+import { initPackagePkg } from 'lib/init-pkg.ts';
 
 process.on('SIGINT', () => process.exit(0));
 process.on('SIGTERM', () => process.exit(0));
 
 async function main() {
+  await initPackagePkg();
   const packageInfo = await getPackageInfo();
   const program = new Command()
     .name('@in-ch/setup')
