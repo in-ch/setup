@@ -1,8 +1,18 @@
 {
   "name": "@in-ch/setup",
-  "version": "0.0.1-rc3",
+  "version": "0.0.1-rc4",
   "description": "A tool for quick setup and configuration of essential project files.",
-  "keywords": ["setting", "setup","eslint", "prettier", "husky", "lighthouse", "package manager", "typescript", "git message"],
+  "keywords": [
+    "setting",
+    "setup",
+    "eslint",
+    "prettier",
+    "husky",
+    "lighthouse",
+    "package manager",
+    "typescript",
+    "git message"
+  ],
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
