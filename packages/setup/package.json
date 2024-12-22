@@ -43,7 +43,8 @@
     "ics": "./dist/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "const"
   ],
   "publishConfig": {
     "access": "public"
