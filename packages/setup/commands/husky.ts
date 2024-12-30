@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
 import { existsSync } from 'fs';
-import { createConfigHusky, installDependencies } from 'lib/husky-config.ts';
+import { createConfigHusky, installDependencies, updatePackageJson } from 'lib/husky-config.ts';
 import { confirm } from '@inquirer/prompts';
 
 export const huskyCli = new Command()
@@ -23,4 +23,5 @@ export const husky = async () => {
   }
   await installDependencies();
   await createConfigHusky();
+  await updatePackageJson();
 };

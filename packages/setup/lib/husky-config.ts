@@ -1,6 +1,8 @@
 import { execSync } from 'child_process';
 import { packageManagerInstallChoices } from 'const/packagesMng.ts';
+import fs from 'fs-extra';
 import detectPackageManager from 'lib/detect-package-manger.ts';
+import path from 'path';
 import { select } from '@inquirer/prompts';
 
 const installDependencies = async (): Promise<void> => {
@@ -35,4 +37,30 @@ const createConfigHusky = async (): Promise<void> => {
   execSync(`npx husky init`, { stdio: 'inherit' });
 };
 
-export { createConfigHusky, installDependencies };
+const updatePackageJson = async (): Promise<void> => {
+  const packageJsonPath = path.resolve(process.cwd(), 'package.json');
+  try {
+    await fs.access(packageJsonPath);
+  } catch (error) {
+    console.error('package.json 파일을 찾을 수 없습니다.');
+    return;
+  }
+
+  try {
+    const data = await fs.readFile(packageJsonPath, 'utf-8');
+    const packageJson = JSON.parse(data);
+
+    if (!packageJson.scripts) {
+      packageJson.scripts = {};
+    }
+
+    packageJson.scripts.test = 'echo "Error: no test specified" && exit 1';
+
+    await fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2), 'utf-8');
+    console.log('package.json file updated successfully.');
+  } catch (error) {
+    console.error('An error occurred while reading or modifying the package.json file:', error);
+  }
+};
+
+export { createConfigHusky, installDependencies, updatePackageJson };

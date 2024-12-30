@@ -25,10 +25,12 @@ export const listCli = new Command()
       const description = match[2];
       results.push({ command, description });
     }
-    console.log(`${colorMap.orange}@in-ch/setup${colorMap.white}'s commands \n\n${tableMessage({
+    console.log(
+      `${colorMap.orange}@in-ch/setup${colorMap.white}'s commands \n\n${tableMessage({
         data: results,
         borderColor: 'lightBlack',
         textColor: 'default',
         headerColor: 'orange',
-      })}\n\n`);
+      })}\n\n`
+    );
   });
