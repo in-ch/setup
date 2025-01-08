@@ -59,7 +59,7 @@ pnpm-lock.yaml`;
   try {
     fs.writeFileSync(path.join(rootDir, '.prettierrc.cjs'), prettierConfig, 'utf-8');
     fs.writeFileSync(path.join(rootDir, '.prettierignore '), prettierIgnore, 'utf-8');
-    console.log('🎉 prettier 설정 파일이 생성되었습니다.');
+    console.log('🎉 Prettier configuration file has been created.');
   } catch (error) {
     console.error('🥲 Failed to setup prettier... to  \n', error);
     process.exit(1);

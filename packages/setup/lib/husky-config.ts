@@ -42,7 +42,7 @@ const updatePackageJson = async (): Promise<void> => {
   try {
     await fs.access(packageJsonPath);
   } catch (error) {
-    console.error('package.json 파일을 찾을 수 없습니다.');
+    console.error('Could not find the package.json file.');
     return;
   }
 
