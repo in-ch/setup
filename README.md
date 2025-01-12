@@ -42,32 +42,32 @@ Below are examples of how to use the primary commands of `@in-ch/setup`:
 
 ```bash
 # Initialize essential configuration files (Husky, ESLint, Prettier, etc.)
-ics setup init
+ics init
 
 # Add individual configuration files
 # Husky setup
-ics setup husky
+ics husky
 
 # ESLint setup
-ics setup eslint
+ics eslint
 
 # Git message template setup
-ics setup gitmessage
+ics gitmessage
 
 # Prettier configuration
-ics setup prettier
+ics prettier
 
 # TypeScript configuration
-ics setup typescript
+ics typescript
 
 # Commit lint setup
-ics setup commitlint
+ics commitlint
 
 # Edit existing configuration files
-ics setup edit
+ics edit
 
 # List all available commands
-ics setup list
+ics list
 ```
 
 ### Why Use @in-ch/setup?
