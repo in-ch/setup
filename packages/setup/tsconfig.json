@@ -13,5 +13,8 @@
     "declaration": true,
     "noEmit": true,
     "baseUrl": ".",
+    "paths": {
+      "lib/*": ["lib/*"]
+    }
   },
 }

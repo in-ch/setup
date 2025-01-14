@@ -1,7 +1,6 @@
 import { execSync } from 'child_process';
 import { COMMANDS } from 'const/commands.ts';
 import fs from 'fs';
-import boxedMessage from 'lib/boxed-message.ts';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
 import path from 'path';
 
@@ -20,9 +19,7 @@ const createConfigFiles = (): void => {
     fs.writeFileSync(path.join(rootDir, '.gitmessage'), config, 'utf-8');
     execSync('git config commit.template .gitmessage');
     execSync('git config init.defaultBranch main');
-    console.log(
-      boxedMessage({ messages: ['', '🎉 Successfully created the git message configuration file. 🎉', '', ' '] })
-    );
+    console.log('🎉 Successfully created the git message configuration file. 🎉');
     console.log(
       'You can now write commits following the template using the commit button in your IDE tool or the `git commit` command in the terminal.'
     );

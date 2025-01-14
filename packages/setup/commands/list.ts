@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Command } from 'commander';
 import fs from 'fs';
 import colorMap from 'lib/color-map.ts';
@@ -19,10 +17,10 @@ export const listCli = new Command()
     const fileContent = fs.readFileSync(filePath, 'utf-8');
     const commandDescriptionPattern = /command\("(.+?)"\)\.description\("(.+?)"\)/g;
     let match;
-    const results: Array<{ command: any; description: any }> = [];
+    const results: Array<{ command: string; description: string }> = [];
     while ((match = commandDescriptionPattern.exec(fileContent)) !== null) {
-      const command = match[1];
-      const description = match[2];
+      const command = match[1] as string;
+      const description = match[2] as string;
       results.push({ command, description });
     }
     console.log(
