@@ -1,12 +1,12 @@
 import { execSync } from 'child_process';
 import { packageManagerInstallChoices } from 'const/packagesMng.ts';
-import fs from 'fs-extra';
 import detectPackageManager from 'lib/detect-package-manger.ts';
 import path from 'path';
 import { select } from '@inquirer/prompts';
 
 const installDependencies = async (): Promise<void> => {
   console.log('\nInstalling husky dependencies...\n');
+
   try {
     const dependencies = `husky -D`;
     let packageMng = detectPackageManager();
@@ -39,6 +39,7 @@ const createConfigHusky = async (): Promise<void> => {
 
 const updatePackageJson = async (): Promise<void> => {
   const packageJsonPath = path.resolve(process.cwd(), 'package.json');
+  const fs = await import('fs-extra');
   try {
     await fs.access(packageJsonPath);
   } catch (error) {
