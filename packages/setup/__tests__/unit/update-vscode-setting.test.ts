@@ -13,6 +13,13 @@ jest.mock('lib/check-vscode-extension-installed');
 jest.mock('lib/install-vscode-extension');
 
 describe('updateVscodeSetting', () => {
+  let consoleLogSpy: jest.SpyInstance;
+  beforeAll(() => {
+    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+  });
+  afterAll(() => {
+    consoleLogSpy.mockRestore();
+  });
   const mockSettings = {
     '[javascript]': {
       'editor.defaultFormatter': 'esbenp.prettier-vscode',

@@ -21,7 +21,7 @@
     "start": "node dist/index.js",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "test": "vitest run"
+    "test": "jest"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.1.0",
@@ -34,6 +34,7 @@
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/eslint": "^9.6.1",
     "@types/fs-extra": "^11",
+    "@types/node": "^22.10.6",
     "eslint": "^9.15.0",
     "eslint-plugin-jsdoc": "^50.6.0",
     "eslint-plugin-no-for-of-array": "^0.1.0",

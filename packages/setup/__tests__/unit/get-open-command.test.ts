@@ -11,8 +11,15 @@ jest.mock('child_process', () => ({
 }));
 
 describe('getOpenCommand', () => {
+  let consoleErrorSpy: jest.SpyInstance;
+  beforeAll(() => {
+    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
   beforeEach(() => {
     jest.clearAllMocks();
+  });
+  afterAll(() => {
+    consoleErrorSpy.mockRestore();
   });
 
   it('should return the correct command for win32 platform', () => {

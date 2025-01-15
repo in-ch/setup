@@ -1,7 +1,7 @@
 const config = {
   preset: 'ts-jest',
-  testMatch: ['**/*.test.[jt]s?(x)'],
-  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  testMatch: ['<rootDir>/**/__tests__/**/*.test.[jt]s?(x)'],
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   testEnvironment: 'jsdom',
 };
 
