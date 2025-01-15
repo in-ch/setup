@@ -13,6 +13,7 @@
     "declaration": true,
     "noEmit": true,
     "baseUrl": ".",
+    "allowJs": true,
     "paths": {
       "lib/*": ["lib/*"],
       "const/": ["const/*"],

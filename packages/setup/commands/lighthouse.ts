@@ -1,12 +1,13 @@
-#!/usr/bin/env node
 import { Command } from 'commander';
 import { doAnalysis, installDependencies } from 'lib/lighthouse-config.ts';
 
 export const lighthouseCli = new Command()
   .command('lg')
   .description('Run a Lighthouse test')
-  .action(async () => lighthouse());
-export const lighthouse = async () => {
+  .option('--headless', 'Run Lighthouse in headless mode')
+  .action(async cmd => lighthouse(cmd.headless));
+
+export const lighthouse = async (headless = false) => {
   await installDependencies();
-  await doAnalysis();
+  await doAnalysis(headless);
 };

@@ -21,7 +21,7 @@ const installDependencies = async (): Promise<void> => {
   }
 };
 
-const doAnalysis = async (): Promise<void> => {
+const doAnalysis = async (headless = false): Promise<void> => {
   const webAddress = await input({
     message: 'Enter the web address:',
     default: 'http://localhost:3000',
@@ -37,8 +37,10 @@ const doAnalysis = async (): Promise<void> => {
     console.error('Invalid web address. Please enter a valid URL.');
     return;
   }
-  console.log('Please wait a second ...');
-  execSync(`lighthouse ${webAddress} --output=html --view`, { stdio: 'inherit' });
+
+  execSync(`lighthouse ${webAddress} ${headless ? '--chrome-flags="--headless"' : ' --output=html --view'} `, {
+    stdio: 'inherit',
+  });
 };
 
 export { installDependencies, doAnalysis };

@@ -2,6 +2,21 @@ import { execSync } from 'child_process';
 import os from 'os';
 
 /**
+ * @param {string} program program name
+ *
+ * @description Checks if the program specified as a parameter is installed.
+ * @returns {boolean} Returns true if the specified program is installed, false otherwise.
+ */
+const isProgramAvailable = (program: string): boolean => {
+  try {
+    execSync(`which ${program}`, { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+/**
  * @param {string} filepath File path
  * @description Get a command to open a file in VS Code or the default text editor, depending on the OS and availability
  * @returns {string} Command to open the file
@@ -9,14 +24,6 @@ import os from 'os';
 export default function getOpenCommand(filepath: string): string {
   const platform = os.platform();
   let command;
-  const isProgramAvailable = (program: string): boolean => {
-    try {
-      execSync(`which ${program}`, { stdio: 'ignore' });
-      return true;
-    } catch {
-      return false;
-    }
-  };
 
   if (platform === 'win32') {
     command = `start "" "notepad" "${filepath}"`;
