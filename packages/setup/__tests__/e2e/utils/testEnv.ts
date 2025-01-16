@@ -23,4 +23,8 @@ function cleanUpTestEnv() {
   }
 }
 
-export { makeTestEnv, cleanUpTestEnv };
+function getTestEnvDir(): string {
+  return TEMP_DIR;
+}
+
+export { makeTestEnv, cleanUpTestEnv, getTestEnvDir };

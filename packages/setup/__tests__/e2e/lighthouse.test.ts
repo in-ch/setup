@@ -1,8 +1,7 @@
 import { spawnSync } from 'child_process';
 import fs from 'fs';
-import path from 'path';
 import getCliPath from './utils/getCliPath.ts';
-import { cleanUpTestEnv, makeTestEnv } from './utils/testEnv.ts';
+import { cleanUpTestEnv, getTestEnvDir, makeTestEnv } from './utils/testEnv.ts';
 
 describe('[e2e] lighthouse.test.ts', () => {
   beforeAll(() => {
@@ -20,7 +19,7 @@ describe('[e2e] lighthouse.test.ts', () => {
       encoding: 'utf-8',
     });
 
-    const testEnvDir = path.join(process.cwd(), '');
+    const testEnvDir = getTestEnvDir();
     const files = fs.readdirSync(testEnvDir);
     const localhostHtmlFile = files.find(file => /^localhost.*\.html$/.test(file));
     expect(localhostHtmlFile).toBeDefined();
