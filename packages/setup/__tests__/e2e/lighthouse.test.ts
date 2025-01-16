@@ -7,10 +7,10 @@ describe('[e2e] lighthouse.test.ts', () => {
   beforeAll(() => {
     makeTestEnv();
   });
-
   afterAll(() => {
     cleanUpTestEnv();
   });
+
   test('should initialize lighthouse', () => {
     const cliPath = getCliPath();
     spawnSync('node', [cliPath, 'lg', '--headless'], {
