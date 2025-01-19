@@ -1,6 +1,10 @@
 {
   "name": "@in-ch/setup",
   "version": "0.0.1-rc5",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/in-ch/setup"
+  },
   "description": "A tool for quick setup and configuration of essential project files.",
   "keywords": [
     "setting",
@@ -11,7 +15,29 @@
     "lighthouse",
     "package manager",
     "typescript",
-    "git message"
+    "git message",
+    "monorepo",
+    "CI/CD",
+    "automation",
+    "devtools",
+    "code quality",
+    "commitizen",
+    "git hooks",
+    "linting",
+    "code formatting",
+    "test automation",
+    "pre-commit hooks",
+    "webpack",
+    "rollup",
+    "babel",
+    "jest",
+    "vitest",
+    "eslint-config",
+    "prettier-config",
+    "husky-config",
+    "commitlint-config",
+    "starter template",
+    "git commit"
   ],
   "scripts": {
     "dev": "tsup --watch",
