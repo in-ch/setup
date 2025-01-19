@@ -1,6 +1,6 @@
 {
   "name": "@in-ch/setup",
-  "version": "0.0.1-rc5",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/in-ch/setup"
