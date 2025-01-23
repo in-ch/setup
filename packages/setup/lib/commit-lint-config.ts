@@ -14,7 +14,7 @@ import { select } from '@inquirer/prompts';
 const installDependencies = async (): Promise<void> => {
   console.log('\nInstalling eslint dependencies...\n');
   try {
-    const dependencies = '@commitlint/{config-conventional,cli} lint-staged';
+    const dependencies = ['@commitlint/config-conventional', '@commitlint/cli', 'lint-staged'];
     let packageMng = detectPackageManager();
     if (packageMng === 'default') {
       console.log(
@@ -31,7 +31,7 @@ const installDependencies = async (): Promise<void> => {
         packageMng = answer;
       }
     }
-    const installCommand = `${packageMng} ${dependencies}`;
+    const installCommand = `${packageMng} ${dependencies.join(' ')}`;
     console.log({ installCommand });
     execSync(`${installCommand} -D`, { stdio: 'inherit' });
   } catch (error) {
