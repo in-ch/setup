@@ -1,4 +1,5 @@
 import { Command } from 'commander';
+import { latestCli } from 'commands/latest.ts';
 import { commitlintCli } from 'commands/commitlint.ts';
 import { editCli } from 'commands/edit.ts';
 import { eslintCli } from 'commands/eslint.ts';
@@ -36,6 +37,7 @@ async function main() {
   program.addCommand(pkgmngCli);
   program.addCommand(lighthouseCli);
   program.addCommand(vsCodeAutoPrefixCli);
+  program.addCommand(latestCli);
   program.parse();
 }
 
