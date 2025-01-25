@@ -3,6 +3,7 @@ import { Command } from 'commander';
 import { husky } from 'commands/husky.ts';
 import { existsSync } from 'fs';
 import { createConfigFiles, installDependencies } from 'lib/commit-lint-config.ts';
+import versionCheckAndUpdate from 'lib/version-update.ts';
 import { confirm } from '@inquirer/prompts';
 
 export const commitlintCli = new Command()
@@ -10,6 +11,8 @@ export const commitlintCli = new Command()
   .description('Setup commit lint')
   .action(async () => commitLint());
 export const commitLint = async () => {
+  await versionCheckAndUpdate();
+
   const isInitHusky = existsSync('.husky');
   if (!isInitHusky) {
     const isInitHusky = await confirm({

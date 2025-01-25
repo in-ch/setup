@@ -3,12 +3,15 @@ import { Command } from 'commander';
 import { existsSync } from 'fs';
 import { createConfigFiles, installDependencies } from 'lib/prettier-config.ts';
 import { confirm } from '@inquirer/prompts';
+import versionCheckAndUpdate from 'lib/version-update.ts';
 
 export const prettierCli = new Command()
   .command('prettier')
   .description('Setup prettier file')
   .action(async () => prettier());
 export const prettier = async () => {
+  await versionCheckAndUpdate();
+
   const prettierConfigFiles = [
     '.prettierrc',
     '.prettierrc.json',

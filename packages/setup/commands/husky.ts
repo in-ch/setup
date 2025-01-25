@@ -2,6 +2,7 @@
 import { Command } from 'commander';
 import { existsSync } from 'fs';
 import { createConfigHusky, installDependencies, updatePackageJson } from 'lib/husky-config.ts';
+import versionCheckAndUpdate from 'lib/version-update.ts';
 import { confirm } from '@inquirer/prompts';
 
 export const huskyCli = new Command()
@@ -10,6 +11,8 @@ export const huskyCli = new Command()
   .action(async () => husky());
 
 export const husky = async () => {
+  await versionCheckAndUpdate();
+
   const huskyConfigFiles = ['.husky'];
   const existingConfigs = huskyConfigFiles.filter(file => existsSync(file));
   if (existingConfigs.length > 0) {

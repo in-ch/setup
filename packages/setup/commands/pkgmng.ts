@@ -2,6 +2,7 @@
 import { execSync } from 'child_process';
 import { Command } from 'commander';
 import { packageManagerChoices } from 'const/packagesMng.ts';
+import versionCheckAndUpdate from 'lib/version-update.ts';
 import { select } from '@inquirer/prompts';
 
 export const pkgmngCli = new Command()
@@ -9,6 +10,8 @@ export const pkgmngCli = new Command()
   .description('Initialize package manager')
   .action(async () => pkgmng());
 export const pkgmng = async () => {
+  await versionCheckAndUpdate();
+
   try {
     const answer = await select({
       message: 'Which package manager would you like to use? \n',

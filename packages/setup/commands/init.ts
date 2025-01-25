@@ -1,11 +1,14 @@
 import { Command } from 'commander';
 import { commandChoices, commandFuc, CommandsTypes } from 'const/commands.ts';
 import { checkbox } from '@inquirer/prompts';
+import versionCheckAndUpdate from 'lib/version-update.ts';
 
 export const initCli = new Command()
   .command('init')
   .description('Easy Setup various configs')
   .action(async () => {
+    await versionCheckAndUpdate();
+
     const results: CommandsTypes[] = await checkbox({
       message: 'Which files do you want to install?\n',
       choices: commandChoices,

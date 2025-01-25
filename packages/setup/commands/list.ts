@@ -3,6 +3,7 @@ import { Command } from 'commander';
 import fs from 'fs';
 import colorMap from 'lib/color-map.ts';
 import tableMessage from 'lib/table-message.ts';
+import versionCheckAndUpdate from 'lib/version-update.ts';
 import { fileURLToPath } from 'url';
 
 /**
@@ -12,6 +13,8 @@ export const listCli = new Command()
   .command('list')
   .description('list all commands')
   .action(async () => {
+    await versionCheckAndUpdate()
+    
     const isESM = typeof import.meta !== 'undefined';
     const filePath = isESM ? fileURLToPath(import.meta.url) : __filename;
     const fileContent = fs.readFileSync(filePath, 'utf-8');
