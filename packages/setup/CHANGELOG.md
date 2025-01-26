@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/in-ch/setup/compare/v0.0.1...v0.0.2) (2025-01-26)
+
+
+### Features
+
+* add latest command ([ebfdaf3](https://github.com/in-ch/setup/commit/ebfdaf33ad97a82f8185021853c4fa7c1559d16b))
+* add version check and prompt for update before executing commands ([20430cb](https://github.com/in-ch/setup/commit/20430cb7f0643b42775ad8342a63a3a1cef8904b))
+
+
+### Bug Fixes
+
+* change eslint file name ([b8c21b0](https://github.com/in-ch/setup/commit/b8c21b0397d3eefeac9d84f35e7602384df206a2))
+* resolve issue with install command failing ([0e3cf0d](https://github.com/in-ch/setup/commit/0e3cf0d4165d756a292b77a877561252ae6ae04c))
+
 ### [0.0.1](https://github.com/in-ch/setup/compare/v0.0.1-rc5...v0.0.1) (2025-01-19)
 
 ### [0.0.1-rc5](https://github.com/in-ch/setup/compare/v0.0.1-rc4...v0.0.1-rc5) (2025-01-13)
