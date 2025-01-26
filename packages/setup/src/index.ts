@@ -1,11 +1,11 @@
 import { Command } from 'commander';
-import { latestCli } from 'commands/latest.ts';
 import { commitlintCli } from 'commands/commitlint.ts';
 import { editCli } from 'commands/edit.ts';
 import { eslintCli } from 'commands/eslint.ts';
 import { gitmessageCli } from 'commands/gitmessage.ts';
 import { huskyCli } from 'commands/husky.ts';
 import { initCli } from 'commands/init.ts';
+import { latestCli } from 'commands/latest.ts';
 import { lighthouseCli } from 'commands/lighthouse.ts';
 import { listCli } from 'commands/list.ts';
 import { pkgmngCli } from 'commands/pkgmng.ts';

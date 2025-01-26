@@ -13,8 +13,8 @@ export const listCli = new Command()
   .command('list')
   .description('list all commands')
   .action(async () => {
-    await versionCheckAndUpdate()
-    
+    await versionCheckAndUpdate();
+
     const isESM = typeof import.meta !== 'undefined';
     const filePath = isESM ? fileURLToPath(import.meta.url) : __filename;
     const fileContent = fs.readFileSync(filePath, 'utf-8');

@@ -2,8 +2,8 @@
 import { Command } from 'commander';
 import { existsSync } from 'fs';
 import { createConfigFiles, installDependencies } from 'lib/eslint-config.ts';
-import { confirm } from '@inquirer/prompts';
 import versionCheckAndUpdate from 'lib/version-update.ts';
+import { confirm } from '@inquirer/prompts';
 
 export const eslintCli = new Command()
   .command('eslint')
@@ -11,7 +11,7 @@ export const eslintCli = new Command()
   .action(async () => eslint());
 export const eslint = async () => {
   await versionCheckAndUpdate();
-  
+
   const eslintConfigFiles = [
     '.eslintrc.js',
     '.eslintrc.json',

@@ -2,8 +2,8 @@
 import { Command } from 'commander';
 import { existsSync } from 'fs';
 import { createConfigFiles, initializeGit } from 'lib/gitmessage-config.ts';
-import { confirm } from '@inquirer/prompts';
 import versionCheckAndUpdate from 'lib/version-update.ts';
+import { confirm } from '@inquirer/prompts';
 
 export const gitmessageCli = new Command()
   .command('gitmessage')

@@ -7,5 +7,5 @@ export const vsCodeAutoPrefixCli = new Command()
   .description('Update VSCode Auto Prefix Settings')
   .action(async () => {
     await versionCheckAndUpdate();
-    updateVscodeSetting()
+    updateVscodeSetting();
   });

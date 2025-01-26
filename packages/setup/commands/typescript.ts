@@ -10,7 +10,7 @@ export const typescriptCli = new Command()
   .action(async () => typescript());
 export const typescript = async () => {
   await versionCheckAndUpdate();
-  
+
   const typescriptConfigFiles = ['.tsconfig.json'];
   const existingConfigs = typescriptConfigFiles.filter(file => existsSync(file));
   if (existingConfigs.length > 0) {
