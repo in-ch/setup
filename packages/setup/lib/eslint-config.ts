@@ -87,7 +87,7 @@ const installAirbnbDependencies = async (): Promise<void> => {
 
 const createAirbnbConfigFiles = (): void => {
   const rootDir = process.cwd();
-  const eslintConfig = fs.readFileSync(getSettingFilePath('airbnb'), 'utf-8');
+  const eslintConfig = fs.readFileSync(getSettingFilePath(COMMANDS.AIRBNB), 'utf-8');
   try {
     fs.writeFileSync(path.join(rootDir, 'eslint.config.mjs'), eslintConfig, 'utf-8');
     console.log('\n🎉 Successfully created the ESLint configuration file.');

@@ -13,6 +13,7 @@ const COMMANDS = {
   HUSKY: 'husky',
   COMMIT_LINT: 'commitlint',
   LINT_STAGE: 'lintstage',
+  AIRBNB: 'airbnb',
 };
 type CommandsTypes = (typeof COMMANDS)[keyof typeof COMMANDS];
 const commandFuc = {
@@ -30,6 +31,7 @@ const extension = {
   [COMMANDS.GITMESSAGE]: '.txt',
   [COMMANDS.COMMIT_LINT]: '.json',
   [COMMANDS.LINT_STAGE]: '.json',
+  [COMMANDS.AIRBNB]: '.js',
 };
 const commandChoices = [
   { name: COMMANDS.ESLINT, value: COMMANDS.ESLINT },
