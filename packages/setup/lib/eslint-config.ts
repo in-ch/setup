@@ -8,10 +8,10 @@ import path from 'path';
 import { select } from '@inquirer/prompts';
 
 /**
- * install dependencies
+ * eslint import sort install dependencies
  * @returns {Promise<void>}
  */
-const installDependencies = async (): Promise<void> => {
+const installImportSortDependencies = async (): Promise<void> => {
   console.log('\nInstalling eslint dependencies...\n');
   try {
     const dependencies =
@@ -40,7 +40,7 @@ const installDependencies = async (): Promise<void> => {
   }
 };
 
-const createConfigFiles = (): void => {
+const createImportSortConfigFiles = (): void => {
   const rootDir = process.cwd();
   const eslintConfig = fs.readFileSync(getSettingFilePath(COMMANDS.ESLINT), 'utf-8');
   try {
@@ -52,4 +52,54 @@ const createConfigFiles = (): void => {
   }
 };
 
-export { installDependencies, createConfigFiles };
+/**
+ * eslint airbnb install dependencies
+ * @returns {Promise<void>}
+ */
+const installAirbnbDependencies = async (): Promise<void> => {
+  console.log('\nInstalling eslint dependencies...\n');
+  try {
+    const dependencies =
+      'eslint eslint-config-airbnb-base eslint-plugin-import @typescript-eslint/parser @typescript-eslint/eslint-plugin';
+    let packageMng = detectPackageManager();
+    if (packageMng === 'default') {
+      console.log(
+        'The package manager could not be detected. \n\n1. If this is not the project root, please run the command from the root directory. \n2. If you have not installed the packages beforehand, please install them first and then try again.\n\n'
+      );
+      if (packageMng === 'default') {
+        const answer = await select({
+          message: 'Which package manager would you like to use for installation? \n',
+          choices: packageManagerInstallChoices,
+        });
+        if (answer === 'cancel') {
+          return;
+        }
+        packageMng = answer;
+      }
+    }
+    const installCommand = `${packageMng} ${dependencies}`;
+    execSync(`${installCommand} -D`, { stdio: 'inherit' });
+  } catch (error) {
+    console.error('🥲 🥲 🥲 Failed to install dependencies...');
+    process.exit(1);
+  }
+};
+
+const createAirbnbConfigFiles = (): void => {
+  const rootDir = process.cwd();
+  const eslintConfig = fs.readFileSync(getSettingFilePath('airbnb'), 'utf-8');
+  try {
+    fs.writeFileSync(path.join(rootDir, 'eslint.config.mjs'), eslintConfig, 'utf-8');
+    console.log('\n🎉 Successfully created the ESLint configuration file.');
+  } catch (error) {
+    console.error('🥲 🥲 🥲 Failed to setup eslint... to\n', error);
+    process.exit(1);
+  }
+};
+
+export {
+  installImportSortDependencies,
+  createImportSortConfigFiles,
+  installAirbnbDependencies,
+  createAirbnbConfigFiles,
+};

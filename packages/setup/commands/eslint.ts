@@ -1,9 +1,15 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
+import { eslintConfigTypeChoices, eslintConfigTypeChoicesValue } from 'const/commands.ts';
 import { existsSync } from 'fs';
-import { createConfigFiles, installDependencies } from 'lib/eslint-config.ts';
+import {
+  createAirbnbConfigFiles,
+  createImportSortConfigFiles,
+  installAirbnbDependencies,
+  installImportSortDependencies,
+} from 'lib/eslint-config.ts';
 import versionCheckAndUpdate from 'lib/version-update.ts';
-import { confirm } from '@inquirer/prompts';
+import { confirm, select } from '@inquirer/prompts';
 
 export const eslintCli = new Command()
   .command('eslint')
@@ -30,6 +36,18 @@ export const eslint = async () => {
       return;
     }
   }
-  installDependencies();
-  createConfigFiles();
+  const eslintConfigType = await select({
+    message: 'Choose an ESLint configuration type:',
+    choices: eslintConfigTypeChoices,
+  });
+
+  if (eslintConfigType === eslintConfigTypeChoicesValue.airbnb) {
+    console.log('Setting up Airbnb ESLint configuration...');
+    installAirbnbDependencies();
+    createAirbnbConfigFiles();
+  } else {
+    console.log('Setting up Import Sort ESLint configuration...');
+    installImportSortDependencies();
+    createImportSortConfigFiles();
+  }
 };

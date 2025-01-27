@@ -39,5 +39,25 @@ const commandChoices = [
   { name: COMMANDS.HUSKY, value: COMMANDS.HUSKY },
   { name: COMMANDS.COMMIT_LINT, value: COMMANDS.COMMIT_LINT },
 ];
+const eslintConfigTypeChoices = [
+  { name: 'Import Sort', value: 'import-sort' },
+  { name: 'Airbnb', value: 'airbnb' },
+];
 
-export { COMMANDS, CommandsTypes, commandFuc, commandChoices, extension };
+const eslintConfigTypeChoicesValue = eslintConfigTypeChoices.reduce(
+  (acc, choice) => {
+    acc[choice.value] = choice.value;
+    return acc;
+  },
+  {} as Record<string, string>
+);
+
+export {
+  COMMANDS,
+  CommandsTypes,
+  commandFuc,
+  commandChoices,
+  extension,
+  eslintConfigTypeChoices,
+  eslintConfigTypeChoicesValue,
+};
