@@ -60,12 +60,5 @@ const eslintConfigTypeChoicesValue = eslintConfigTypeChoices.reduce(
   {} as Record<string, string>
 );
 
-export {
-  COMMANDS,
-  CommandsTypes,
-  commandFuc,
-  commandChoices,
-  extension,
-  eslintConfigTypeChoices,
-  eslintConfigTypeChoicesValue,
-};
+export { COMMANDS, commandFuc, commandChoices, extension, eslintConfigTypeChoices, eslintConfigTypeChoicesValue };
+export type { CommandsTypes };

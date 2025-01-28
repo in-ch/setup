@@ -29,4 +29,5 @@ const packageManagerInstallChoices = [
   { name: 'cancel', value: 'cancel' },
 ];
 
-export { PACKAGE_MANAGER, PackageManagerTypes, packageManagerChoices, packageManagerInstallChoices };
+export { PACKAGE_MANAGER, packageManagerChoices, packageManagerInstallChoices };
+export type { PackageManagerTypes };

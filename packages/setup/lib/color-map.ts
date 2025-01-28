@@ -45,4 +45,4 @@ const colorMap: { [key: string]: string } = {
 type Color = keyof typeof colorMap;
 
 export default colorMap;
-export { Color };
+export type { Color };
