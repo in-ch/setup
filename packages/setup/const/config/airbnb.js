@@ -1,4 +1,3 @@
-// eslint.config.mjs
 import { defineConfig } from 'eslint-define-config';
 
 export default defineConfig({

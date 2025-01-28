@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { eslintConfigTypeChoices, eslintConfigTypeChoicesValue } from 'const/commands.ts';
+import { COMMANDS, eslintConfigTypeChoices, eslintConfigTypeChoicesValue } from 'const/commands.ts';
 import { existsSync } from 'fs';
 import {
-  createAirbnbConfigFiles,
-  createImportSortConfigFiles,
+  createConfigFiles,
   installAirbnbDependencies,
+  installGoogleDependencies,
   installImportSortDependencies,
+  installXODependencies,
 } from 'lib/eslint-config.ts';
 import versionCheckAndUpdate from 'lib/version-update.ts';
 import { confirm, select } from '@inquirer/prompts';
@@ -44,10 +45,18 @@ export const eslint = async () => {
   if (eslintConfigType === eslintConfigTypeChoicesValue.airbnb) {
     console.log('Setting up Airbnb ESLint configuration...');
     installAirbnbDependencies();
-    createAirbnbConfigFiles();
+    createConfigFiles(COMMANDS.AIRBNB);
+  } else if (eslintConfigType === eslintConfigTypeChoicesValue.google) {
+    console.log('Setting up Google ESLint configuration...');
+    installGoogleDependencies();
+    createConfigFiles(COMMANDS.GOOGLE);
+  } else if (eslintConfigType === eslintConfigTypeChoicesValue.xo) {
+    console.log('Setting up XO ESLint configuration...');
+    installXODependencies();
+    createConfigFiles(COMMANDS.XO);
   } else {
     console.log('Setting up Import Sort ESLint configuration...');
     installImportSortDependencies();
-    createImportSortConfigFiles();
+    createConfigFiles(COMMANDS.ESLINT);
   }
 };

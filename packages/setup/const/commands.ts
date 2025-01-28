@@ -14,6 +14,8 @@ const COMMANDS = {
   COMMIT_LINT: 'commitlint',
   LINT_STAGE: 'lintstage',
   AIRBNB: 'airbnb',
+  GOOGLE: 'google',
+  XO: 'xo',
 };
 type CommandsTypes = (typeof COMMANDS)[keyof typeof COMMANDS];
 const commandFuc = {
@@ -32,6 +34,8 @@ const extension = {
   [COMMANDS.COMMIT_LINT]: '.json',
   [COMMANDS.LINT_STAGE]: '.json',
   [COMMANDS.AIRBNB]: '.js',
+  [COMMANDS.GOOGLE]: '.js',
+  [COMMANDS.XO]: '.js',
 };
 const commandChoices = [
   { name: COMMANDS.ESLINT, value: COMMANDS.ESLINT },
@@ -44,6 +48,8 @@ const commandChoices = [
 const eslintConfigTypeChoices = [
   { name: 'Import Sort', value: 'import-sort' },
   { name: 'Airbnb', value: 'airbnb' },
+  { name: 'Google', value: 'google' },
+  { name: 'XO', value: 'xo' },
 ];
 
 const eslintConfigTypeChoicesValue = eslintConfigTypeChoices.reduce(
