@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/in-ch/setup/compare/v0.0.3...v0.0.4) (2025-02-03)
+
+
+### Features
+
+* ensure npm version is checked before package version check ([b161f60](https://github.com/in-ch/setup/commit/b161f603e8ba0ac316cfcd50cb2120288a715f03))
+
+
+### Bug Fixes
+
+* getPackageInfo to fetch version from global package instead of local ([2fb6eec](https://github.com/in-ch/setup/commit/2fb6eec37169ac542782d9fe38ce35989147520f))
+
 ### [0.0.3](https://github.com/in-ch/setup/compare/v0.0.2...v0.0.3) (2025-02-03)
 
 
