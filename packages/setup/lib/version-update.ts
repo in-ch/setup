@@ -1,9 +1,20 @@
 import { execSync } from 'child_process';
+import { pkgmng } from 'commands/pkgmng.ts';
 import { confirm } from '@inquirer/prompts';
 import checkLatestPkgVersion from './check-latest-pkg-version.ts';
 import { getPackageInfo } from './get-package-info.ts';
 
+function initializePackageManager() {
+  try {
+    execSync('npm --version', { stdio: 'ignore' });
+  } catch {
+    pkgmng();
+  }
+}
+
 export default async function versionCheckAndUpdate() {
+  initializePackageManager();
+
   const latestVersion = await checkLatestPkgVersion('@in-ch/setup');
   const currentVersion = await getPackageInfo().version;
 
