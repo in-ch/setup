@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/in-ch/setup/compare/v0.0.2...v0.0.3) (2025-02-03)
+
+
+### Features
+
+* add Airbnb ESLint option to eslint command ([1a6c727](https://github.com/in-ch/setup/commit/1a6c727df6f918a4dfe6400087913b49b9dc46f6))
+* add Google & XO ESLint option to eslint command ([3d3710b](https://github.com/in-ch/setup/commit/3d3710bc22c1358d169f6a178e9c75dbe2243622))
+
+
+### Bug Fixes
+
+* airbnb eslint path error ([f652028](https://github.com/in-ch/setup/commit/f6520286a0bef087f4ecf92c8ef8b71c8ec31c9b))
+
 ### [0.0.2](https://github.com/in-ch/setup/compare/v0.0.1...v0.0.2) (2025-01-26)
 
 
