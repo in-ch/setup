@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/in-ch/setup/compare/v0.0.4...v0.0.5) (2025-02-04)
+
+
+### Features
+
+* add version update command line ([b254b31](https://github.com/in-ch/setup/commit/b254b315464c1a1e6984a85ab9d9946d3c854de8))
+
 ### [0.0.4](https://github.com/in-ch/setup/compare/v0.0.3...v0.0.4) (2025-02-03)
 
 
