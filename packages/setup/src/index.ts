@@ -11,6 +11,7 @@ import { listCli } from 'commands/list.ts';
 import { pkgmngCli } from 'commands/pkgmng.ts';
 import { prettierCli } from 'commands/prettier.ts';
 import { typescriptCli } from 'commands/typescript.ts';
+import { updateCli } from 'commands/update.ts';
 import { vsCodeAutoPrefixCli } from 'commands/vscode-autoprefix.ts';
 import { getPackageInfo } from 'lib/get-package-info.ts';
 import { initPackagePkg } from 'lib/init-pkg.ts';
@@ -38,6 +39,7 @@ async function main() {
   program.addCommand(lighthouseCli);
   program.addCommand(vsCodeAutoPrefixCli);
   program.addCommand(latestCli);
+  program.addCommand(updateCli);
   program.parse();
 }
 

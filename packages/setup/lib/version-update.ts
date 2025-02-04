@@ -4,7 +4,7 @@ import { confirm } from '@inquirer/prompts';
 import checkLatestPkgVersion from './check-latest-pkg-version.ts';
 import { getPackageInfo } from './get-package-info.ts';
 
-function initializePackageManager() {
+export function initializePackageManager() {
   try {
     execSync('npm --version', { stdio: 'ignore' });
   } catch {
