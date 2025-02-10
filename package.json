@@ -45,7 +45,9 @@
     "build": "pnpm recursive run build",
     "prepare": "husky",
     "bench": "pnpm vitest bench",
-    "dev:docs": "pnpm -F docs start"
+    "dev:docs": "pnpm -F docs start",
+    "dev:setup": "pnpm -F @in-ch/setup dev",
+    "start:setup": "pnpm -F @in-ch/setup start"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
