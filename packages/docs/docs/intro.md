@@ -4,44 +4,54 @@ sidebar_position: 1
 
 # Tutorial Intro
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Let's discover **@in-ch/setup** and set up your project efficiently.
 
 ## Getting Started
 
-Get started by **creating a new site**.
+**@in-ch/setup** helps you easily configure **ESLint**, **Prettier**, **husky** and other development tools for maintaining code quality and consistency.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
+### Requirements
 
 - [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+  - When installing Node.js, it is recommended to check all checkboxes related to dependencies.
 
-## Generate a new site
+## Setting Up Your Project
 
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
+To install **@in-ch/setup**, run the following command:
 
 ```bash
-npm init docusaurus@latest my-website classic
+npm install @in-ch/setup -g
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
+To configure your project with @in-ch/setup, run the following command:
 
 ```bash
-cd my-website
-npm run start
+ics init
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+This command will generate configuration files for ESLint, Prettier, and other tools, and install the necessary dependencies.
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+To see more available commands, run the following command:"
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+```bash
+ics list
+```
+
+## Verifying the Configuration
+
+Once the setup is complete, you can check the generated configuration files and make modifications if needed.
+For example, files like **.eslintrc.js** and **.prettierrc** should now be available in your project.
+
+## Running Code Quality Checks
+
+After the setup, you can run the following command to check and fix code issues:
+
+```bash
+ics lint
+```
+
+This command will analyze your project's code based on the defined rules and automatically fix styling issues where possible.
+
+---
+
+With this tutorial, you can quickly configure and use **@in-ch/setup** to improve your project's code quality and maintain consistency. 🚀
