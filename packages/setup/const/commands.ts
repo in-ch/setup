@@ -17,6 +17,12 @@ const COMMANDS = {
   GOOGLE: 'google',
   XO: 'xo',
 };
+
+const filteredCommands = Object.entries(COMMANDS)
+  .filter(([key]) => ![COMMANDS.AIRBNB, COMMANDS.GOOGLE, COMMANDS.XO].includes(key))
+  .map(([key, value]) => ({ name: key, value }));
+const filteredCommandChoices = filteredCommands.map(command => command.value);
+
 type CommandsTypes = (typeof COMMANDS)[keyof typeof COMMANDS];
 const commandFuc = {
   [COMMANDS.ESLINT]: () => eslint(),
@@ -60,5 +66,14 @@ const eslintConfigTypeChoicesValue = eslintConfigTypeChoices.reduce(
   {} as Record<string, string>
 );
 
-export { COMMANDS, commandFuc, commandChoices, extension, eslintConfigTypeChoices, eslintConfigTypeChoicesValue };
+export {
+  COMMANDS,
+  commandFuc,
+  commandChoices,
+  extension,
+  eslintConfigTypeChoices,
+  eslintConfigTypeChoicesValue,
+  filteredCommands,
+  filteredCommandChoices,
+};
 export type { CommandsTypes };

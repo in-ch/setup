@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import { commandChoices, commandFuc, CommandsTypes } from 'const/commands.ts';
+import { commandFuc, CommandsTypes, filteredCommandChoices } from 'const/commands.ts';
 import versionCheckAndUpdate from 'lib/version-update.ts';
 import { checkbox } from '@inquirer/prompts';
 
@@ -11,7 +11,7 @@ export const initCli = new Command()
 
     const results: CommandsTypes[] = await checkbox({
       message: 'Which files do you want to install?\n',
-      choices: commandChoices,
+      choices: filteredCommandChoices,
     });
     for (const result of results) {
       if (commandFuc[result] !== undefined) {
