@@ -10,7 +10,7 @@ Generates an **ESLint** configuration file with simple commands.
 ics eslint
 ```
 
-Alternatively, you can set up ESLint along with other configurations using the following command:
+Alternatively, you can set up **ESLint** along with other configurations using the following command:
 
 ```bash
 ics init
