@@ -11,7 +11,7 @@ This project provides a CLI utility to set up and manage **Husky**.
 To set up **Husky** in your project, follow these steps:
 
 ```bash
-npm i @in-ch/setup -g
+npm install @in-ch/setup -g
 ```
 
 # 🚀 Usage

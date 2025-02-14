@@ -11,7 +11,7 @@ This project provides a CLI utility to set up and manage Git commit message temp
 To set up a Git commit message template in your project, follow these steps:
 
 ```bash
-npm i @in-ch/setup -g
+npm install @in-ch/setup -g
 ```
 
 # 🚀 Usage
