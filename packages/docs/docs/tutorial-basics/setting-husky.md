@@ -28,9 +28,9 @@ If Husky is already configured, you will see the following message:
 Husky settings are already configured. Do you still want to proceed with the setup?
 ```
 
-Selecting **Yes** will overwrite the existing configuration.
+- Selecting **Yes** will overwrite the existing configuration.
 
-Selecting **No** will cancel the setup.
+- Selecting **No** will cancel the setup.
 
 ### Detecting Package Manager.
 
