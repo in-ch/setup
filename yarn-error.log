@@ -1,0 +1,123 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.js add @in-ch/setup
+
+PATH: 
+  /Users/seonginch/.rbenv/shims:/Users/seonginch/.rbenv/bin:/Users/seonginch/.rbenv/shims:/Users/seonginch/.gem/bin:/Users/seonginch/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Users/seonginch/.rbenv/shims:/Users/seonginch/.rbenv/bin:/Users/seonginch/.gem/bin:/Users/seonginch/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/Users/seonginch/.cargo/bin:/Users/seonginch/Library/Android/sdk/emulator:/Users/seonginch/Library/Android/sdk/tools:/Users/seonginch/Library/Android/sdk/tools/bin:/Users/seonginch/Library/Android/sdk/platform-tools:/Users/seonginch/development/flutter/bin:/Users/seonginch/.pub-cache/bin:/Users/seonginch/Library/Android/sdk/emulator:/Users/seonginch/Library/Android/sdk/tools:/Users/seonginch/Library/Android/sdk/tools/bin:/Users/seonginch/Library/Android/sdk/platform-tools:/Users/seonginch/development/flutter/bin:/Users/seonginch/.pub-cache/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  20.9.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/Users/seonginch/Library/Caches/Yarn/v6/npm-globals-14.0.0-898d7413c29babcf6bafe56fcadded858ada724e-integrity/node_modules/globals/index.d.ts' -> '/Users/seonginch/Desktop/dashboard/setup/node_modules/@eslint/eslintrc/node_modules/globals/index.d.ts'
+
+npm manifest: 
+  {
+    "name": "setup-workspace",
+    "description": "A tool for quick setup and configuration of essential project files.",
+    "type": "commonjs",
+    "private": "false",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/in-ch/setup"
+    },
+    "keywords": [
+      "setting",
+      "setup",
+      "eslint",
+      "prettier",
+      "husky",
+      "lighthouse",
+      "package manager",
+      "typescript",
+      "git message",
+      "monorepo",
+      "CI/CD",
+      "automation",
+      "devtools",
+      "code quality",
+      "commitizen",
+      "git hooks",
+      "linting",
+      "code formatting",
+      "test automation",
+      "pre-commit hooks",
+      "webpack",
+      "rollup",
+      "babel",
+      "jest",
+      "vitest",
+      "eslint-config",
+      "prettier-config",
+      "husky-config",
+      "commitlint-config",
+      "starter template",
+      "git commit"
+    ],
+    "scripts": {
+      "test": "pnpm recursive run test",
+      "build": "pnpm recursive run build",
+      "prepare": "husky",
+      "bench": "pnpm vitest bench",
+      "dev:docs": "pnpm -F docs start",
+      "dev:setup": "pnpm -F @in-ch/setup dev",
+      "start:setup": "pnpm -F @in-ch/setup start"
+    },
+    "lint-staged": {
+      "*.{js,ts,tsx}": [
+        "eslint --fix",
+        "prettier --write"
+      ]
+    },
+    "devDependencies": {
+      "@babel/plugin-transform-runtime": "^7.25.9",
+      "@babel/preset-env": "^7.26.0",
+      "@babel/preset-typescript": "^7.26.0",
+      "@commitlint/config-conventional": "^19.6.0",
+      "@eslint/js": "^9.15.0",
+      "@rollup/plugin-babel": "^6.0.4",
+      "@rollup/plugin-commonjs": "^28.0.1",
+      "@rollup/plugin-node-resolve": "^15.3.0",
+      "@rollup/plugin-terser": "^0.4.4",
+      "@rollup/plugin-typescript": "^12.1.1",
+      "@testing-library/jest-dom": "^6.6.3",
+      "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+      "@types/eslint": "^9.6.1",
+      "@types/jest": "^29.5.14",
+      "@types/lodash": "^4.17.13",
+      "@types/mocha": "^10.0.9",
+      "@types/node": "^22.10.6",
+      "commitlint": "^19.6.0",
+      "es-toolkit": "^1.27.0",
+      "eslint": "^9.15.0",
+      "eslint-plugin-jsdoc": "^50.5.0",
+      "eslint-plugin-no-for-of-array": "^0.1.0",
+      "eslint-plugin-vue": "^9.31.0",
+      "globals": "^15.12.0",
+      "husky": "^9.1.7",
+      "jest": "^29.7.0",
+      "jest-environment-jsdom": "^29.7.0",
+      "js-yaml": "^4.1.0",
+      "lint-staged": "^15.2.10",
+      "lodash": "^4.17.21",
+      "prettier": "^3.4.0",
+      "prettier-plugin-sort-re-exports": "^0.1.0",
+      "rollup": "3",
+      "ts-jest": "^29.2.5",
+      "ts-node": "^10.9.2",
+      "typescript": "^5.6.3",
+      "typescript-eslint": "^8.16.0",
+      "vitest": "^2.1.6"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

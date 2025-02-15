@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Intro
 
 Let's discover **@in-ch/setup** and set up your project efficiently.
 
