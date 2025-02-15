@@ -1,0 +1,8 @@
+{
+  "label": "Init",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Let's learn the easiest way to complete all configurations using @in-ch/setup."
+  }
+}
