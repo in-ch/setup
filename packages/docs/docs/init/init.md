@@ -10,6 +10,8 @@ To running **init** command, run the following command:
 npm install @in-ch/setup -g
 ```
 
+<br />
+
 # 🚀 Usage
 
 ```bash
@@ -54,6 +56,8 @@ You can select from the following configurations:
 
 Once selected, the necessary configuration files will be created, and dependencies will be installed.
 
+<br />
+
 # ⚙️ Customization
 
 After running ics init, you can manually adjust the generated configuration files to fit your project's needs. For example:
@@ -63,6 +67,8 @@ Modify **eslintrc.config.mjs** to extend Airbnb, Google, or custom linting rules
 Update **.prettierrc.cjs** to change formatting preferences.
 
 Adjust **tsconfig.json** to enable or disable specific TypeScript compiler options.
+
+<br />
 
 # ❓ Troubleshooting
 
