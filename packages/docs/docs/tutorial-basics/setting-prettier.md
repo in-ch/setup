@@ -1,10 +1,26 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Setting Prettier
 
 Generates an **Prettier** configuration file with simple commands.
+
+<br />
+
+# 🛠 Installation
+
+To set up **prettier** in your project, follow these steps:
+
+```bash
+npm install @in-ch/setup -g
+```
+
+<br />
+
+# 🚀 Usage
+
+### Running the Prettier Command
 
 ```bash
 ics prettier
@@ -16,7 +32,7 @@ Alternatively, you can set up **Prettier** along with other configurations using
 ics init
 ```
 
-## .prettierrc.cjs
+### .prettierrc.cjs
 
 ```javascript
 module.exports = {

@@ -6,6 +6,8 @@ sidebar_position: 1
 
 The <code>pm</code> command initializes a package manager in your project.
 
+<br />
+
 # 🛠 Installation
 
 To run **pm** command, run the following command:

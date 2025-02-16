@@ -6,6 +6,8 @@ sidebar_position: 2
 
 This project provides a CLI utility to set up and manage Git commit message templates.
 
+<br />
+
 # 🛠 Installation
 
 To set up a Git commit message template in your project, follow these steps:
@@ -13,6 +15,8 @@ To set up a Git commit message template in your project, follow these steps:
 ```bash
 npm install @in-ch/setup -g
 ```
+
+<br />
 
 # 🚀 Usage
 
@@ -34,6 +38,8 @@ Git is not initialized. Would you like to initialize it?
 
 Once **Git** is initialized, the **.gitmessage** file will be created, and **Git** will be configured to use it as a commit message template.
 
+<br />
+
 # 📌 Features
 
 When executing the command, the following tasks will be performed:
@@ -47,6 +53,8 @@ When executing the command, the following tasks will be performed:
 - Create a commit message template file (**.gitmessage**)
 
 - Configure **Git** to use the commit message template
+
+<br />
 
 # ❗ Important Notes
 

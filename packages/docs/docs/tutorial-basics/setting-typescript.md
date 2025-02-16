@@ -6,6 +6,8 @@ sidebar_position: 2
 
 This project provides a CLI utility to set up **TypeScript** configurations in your project.
 
+<br />
+
 # 🛠 Installation
 
 To set up **TypeScript** in your project, run:
@@ -13,6 +15,8 @@ To set up **TypeScript** in your project, run:
 ```bash
 npm install @in-ch/setup -g
 ```
+
+<br />
 
 # 🚀 Usage
 
@@ -29,6 +33,8 @@ At least one TypeScript file exists.
 ```
 
 Otherwise, **TypeScript** dependencies will be installed, and the **TypeScript** configuration will be initialized.
+
+<br />
 
 # ❗ Important Notes
 

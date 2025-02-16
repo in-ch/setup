@@ -1,10 +1,12 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Auto Prefix Command
 
 The **autoPrefix** command updates **VSCode** settings to enable automatic formatting with **Prettier.**
+
+<br />
 
 # 🛠 Installation
 
@@ -13,6 +15,8 @@ To run this command, follow these steps:
 ```bash
 npm install @in-ch/setup -g
 ```
+
+<br />
 
 # 🚀 Usage
 
@@ -66,6 +70,8 @@ Ensuring Prettier extension is installed...
 VSCode settings.json updated successfully!
 ```
 
+<br />
+
 # 🔖 Advanced Usage
 
 If you need to manually update VSCode settings, you can locate settings.json here:
@@ -75,6 +81,8 @@ If you need to manually update VSCode settings, you can locate settings.json her
 - **Mac:** <code>~/Library/Application Support/Code/User/settings.json</code>
 
 - **Linux:** <code>~/.config/Code/User/settings.json</code>
+
+<br />
 
 # ❓ Troubleshooting
 

@@ -1,10 +1,26 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Setting Eslint
 
 Generates an **ESLint** configuration file with simple commands.
+
+<br />
+
+# 🛠 Installation
+
+To set up **eslint** in your project, follow these steps:
+
+```bash
+npm install @in-ch/setup -g
+```
+
+<br />
+
+# 🚀 Usage
+
+### Running the ESlint command
 
 ```bash
 ics eslint
@@ -15,6 +31,8 @@ Alternatively, you can set up **ESLint** along with other configurations using t
 ```bash
 ics init
 ```
+
+<br />
 
 # Options
 
@@ -27,6 +45,8 @@ The ESLint configuration has four available options:
 - `Google`: Follows <a href="https://google.github.io/styleguide/jsguide.html" target="_blank">Google's JavaScript style guide</a>, focusing on simplicity and readability with a preference for readability and best practices in the JavaScript ecosystem.
 
 - `XO`: A strict JavaScript linter that enforces a set of rules to ensure your code adheres to modern JavaScript standards. It comes with built-in support for ECMAScript modules, async/await, and more.
+
+<br />
 
 # Import Sort
 
@@ -168,6 +188,8 @@ export default [
 ];
 ```
 
+<br />
+
 # Airbnb
 
 Uses the widely adopted <a href="https://github.com/airbnb/javascript" target="_blank">Airbnb JavaScript style guide</a>, which enforces a highly opinionated and comprehensive set of rules for writing clean and maintainable JavaScript code.
@@ -212,6 +234,8 @@ export default defineConfig({
 });
 ```
 
+<br />
+
 # Google
 
 Follows <a href="https://google.github.io/styleguide/jsguide.html" target="_blank">Google's JavaScript style guide</a>, focusing on simplicity and readability with a preference for readability and best practices in the JavaScript ecosystem.
@@ -236,6 +260,8 @@ export default defineConfig({
   },
 });
 ```
+
+<br />
 
 # XO
 

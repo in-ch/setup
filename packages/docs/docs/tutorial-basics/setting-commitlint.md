@@ -1,10 +1,12 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Setting Commit Lint
 
 Easily configure **Commitlint**, **Husky**, and **Lint-Staged** with simple commands.
+
+<br />
 
 # 🛠 Installation
 
@@ -13,6 +15,8 @@ To set up **Commitlint** in your project, run the following command:
 ```bash
 npm install @in-ch/setup -g
 ```
+
+<br />
 
 # 🚀 Usage
 
@@ -28,6 +32,8 @@ This will automatically install dependencies and generate necessary configuratio
 
 If **Husky** is not initialized, you will be prompted to initialize it as well.
 
+<br />
+
 # 📌 Features
 
 - **Commitlint**: Ensures commit messages follow a consistent style.
@@ -35,6 +41,8 @@ If **Husky** is not initialized, you will be prompted to initialize it as well.
 - **Husky**: Enables Git hooks for pre-commit validation.
 
 - **Lint-Staged**: Runs linters only on staged files to improve performance.
+
+<br />
 
 # 📦 Installation Details
 
@@ -45,6 +53,8 @@ The following dependencies will be installed:
 ```
 
 If the package manager cannot be detected, you will be prompted to choose one manually.
+
+<br />
 
 # 🤔 Configuration Files
 
@@ -65,6 +75,8 @@ After running the setup, the following configuration files will be created:
   "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write", "git add"]
 }
 ```
+
+<br />
 
 # ❗ Running Lint Checks
 

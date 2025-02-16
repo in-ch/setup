@@ -2,9 +2,11 @@
 sidebar_position: 2
 ---
 
-# Setting husky
+# Setting Husky
 
 This project provides a CLI utility to set up and manage **Husky**.
+
+<br />
 
 # 🛠 Installation
 
@@ -13,6 +15,8 @@ To set up **Husky** in your project, follow these steps:
 ```bash
 npm install @in-ch/setup -g
 ```
+
+<br />
 
 # 🚀 Usage
 
@@ -36,6 +40,8 @@ Husky settings are already configured. Do you still want to proceed with the set
 
 By default, the project detects the package manager (**npm**, **yarn**, **pnpm**). If not detected, you can manually select one.
 
+<br />
+
 # 📌 Features
 
 When executing the command, the following tasks will be performed:
@@ -49,6 +55,8 @@ When executing the command, the following tasks will be performed:
 - Initialize **Husky**
 
 - Update **package.json**
+
+<br />
 
 # ❗ Important Notes
 
