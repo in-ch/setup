@@ -1,7 +1,6 @@
 # setup
 
 <div align="center">
-    <img src="https://raw.githubusercontent.com/in-ch/setup/master/docs/logo.png" alt="@in-ch/setup - A tool for quick setup and configuration of essential project files." />
     <img src="https://raw.githubusercontent.com/in-ch/setup/master/docs/sample.gif" alt="@in-ch/setup - A tool for quick setup and configuration of essential project files." />
 </div>
 
