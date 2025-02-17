@@ -46,6 +46,7 @@
     "prepare": "husky",
     "bench": "pnpm vitest bench",
     "dev:docs": "pnpm -F docs start",
+    "build:docs": "pnpm -F docs build",
     "dev:setup": "pnpm -F @in-ch/setup dev",
     "start:setup": "pnpm -F @in-ch/setup start"
   },
