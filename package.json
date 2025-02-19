@@ -3,6 +3,7 @@
   "description": "A tool for quick setup and configuration of essential project files.",
   "type": "commonjs",
   "private": "false",
+  "homepage": "https://in-ch.github.io/setup",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/in-ch/setup"

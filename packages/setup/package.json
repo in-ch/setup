@@ -5,6 +5,7 @@
     "type": "git",
     "url": "git+https://github.com/in-ch/setup"
   },
+  "homepage": "https://in-ch.github.io/setup",
   "description": "A tool for quick setup and configuration of essential project files.",
   "keywords": [
     "setting",
