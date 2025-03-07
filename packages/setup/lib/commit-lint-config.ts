@@ -32,7 +32,6 @@ const installDependencies = async (): Promise<void> => {
       }
     }
     const installCommand = `${packageMng} ${dependencies.join(' ')}`;
-    console.log({ installCommand });
     execSync(`${installCommand} -D`, { stdio: 'inherit' });
   } catch (error) {
     console.error("🥲 🥲 🥲 Failed to install commitlint's dependencies...");
