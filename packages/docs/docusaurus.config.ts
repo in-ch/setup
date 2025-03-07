@@ -99,6 +99,17 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    sitemap: {
+      lastmod: 'date',
+      changefreq: 'weekly',
+      priority: 0.5,
+      filename: 'sitemap.xml',
+      createSitemapItems: async params => {
+        const { defaultCreateSitemapItems, ...rest } = params;
+        const items = await defaultCreateSitemapItems(rest);
+        return items;
+      },
+    },
   } satisfies Preset.ThemeConfig,
 };
 
