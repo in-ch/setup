@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/in-ch/setup/compare/v0.0.5...v0.0.6) (2025-03-08)
+
+
+### Features
+
+* add setup script to pnpm workspace ([7af3229](https://github.com/in-ch/setup/commit/7af3229fefc9c41505be36f5eb56a1f6b5a0ccfc))
+* **setup:** create filteredCommandChoices to remove unnecessary options from the init command ([7eb7a62](https://github.com/in-ch/setup/commit/7eb7a62f525369902cbb002f2d63dfde70334c31))
+
+
+### Bug Fixes
+
+* add pnpm installation step to GitHub Actions workflow ([7878641](https://github.com/in-ch/setup/commit/787864189111904245c3041742b381079dca6781))
+* replace pnpm with npm in GitHub Actions workflow ([4faff35](https://github.com/in-ch/setup/commit/4faff35541b20918bffe39425f9b2f1df36a4d3b))
+* update build:docs command for npm compatibility ([828018b](https://github.com/in-ch/setup/commit/828018b9b1eabd17db06b0c3c76b2d7db1402151))
+* update GitHub Actions to run build in docs package directory ([803f998](https://github.com/in-ch/setup/commit/803f9984c0a4d65ed838f9242a2eb169c43e3e95))
+
 ### [0.0.5](https://github.com/in-ch/setup/compare/v0.0.4...v0.0.5) (2025-02-04)
 
 
