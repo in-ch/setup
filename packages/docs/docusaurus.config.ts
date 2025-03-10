@@ -42,6 +42,13 @@ const config: Config = {
         content: 'r2wMXLQ4i-NMIHesrEyjilh3U9ARQ0w0QuMg6GNrfh0',
       },
     },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'robots',
+        content: 'index, follow',
+      },
+    },
   ],
   themeConfig: {
     // Replace with your project's social card
