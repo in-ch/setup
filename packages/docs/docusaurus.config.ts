@@ -34,7 +34,15 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'google-site-verification',
+        content: 'r2wMXLQ4i-NMIHesrEyjilh3U9ARQ0w0QuMg6GNrfh0',
+      },
+    },
+  ],
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -54,15 +62,6 @@ const config: Config = {
         },
       ],
     },
-    headTags: [
-      {
-        tagName: 'meta',
-        attributes: {
-          name: 'google-site-verification',
-          content: 'r2wMXLQ4i-NMIHesrEyjilh3U9ARQ0w0QuMg6GNrfh0',
-        },
-      },
-    ],
     footer: {
       style: 'dark',
       links: [
