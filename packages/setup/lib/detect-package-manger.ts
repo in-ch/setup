@@ -17,7 +17,7 @@ const detectPackageManager = (): string => {
   if (files.includes('package-lock.json')) {
     return 'npm install';
   }
-  return 'default';
+  return 'npm install';
 };
 
 export default detectPackageManager;
