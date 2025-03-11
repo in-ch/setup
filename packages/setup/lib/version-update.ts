@@ -6,7 +6,7 @@ import { getPackageInfo } from './get-package-info.ts';
 
 export function initializePackageManager() {
   try {
-    execSync('npm --version', { stdio: 'ignore' });
+    execSync('npm --version');
   } catch {
     pkgmng();
   }
