@@ -7,6 +7,7 @@ import { confirm } from '@inquirer/prompts';
 
 export const gitmessageCli = new Command()
   .command('gitmessage')
+  .alias('gm')
   .description('Setup git message file')
   .action(async () => gitmessage());
 export const gitmessage = async () => {

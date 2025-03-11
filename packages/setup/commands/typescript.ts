@@ -6,6 +6,7 @@ import versionCheckAndUpdate from 'lib/version-update.ts';
 
 export const typescriptCli = new Command()
   .command('typescript')
+  .alias('ts')
   .description('Setup typescript file')
   .action(async () => typescript());
 export const typescript = async () => {

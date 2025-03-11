@@ -5,7 +5,8 @@ import { packageManagerChoices } from 'const/packagesMng.ts';
 import { select } from '@inquirer/prompts';
 
 export const pkgmngCli = new Command()
-  .command('pm')
+  .command('pkgmng')
+  .alias('pm')
   .description('Initialize package manager')
   .action(async () => pkgmng());
 export const pkgmng = async () => {

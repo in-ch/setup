@@ -7,6 +7,7 @@ import { confirm } from '@inquirer/prompts';
 
 export const huskyCli = new Command()
   .command('husky')
+  .alias('hk')
   .description('Setup husky')
   .action(async () => husky());
 

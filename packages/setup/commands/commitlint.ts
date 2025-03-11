@@ -8,6 +8,7 @@ import { confirm } from '@inquirer/prompts';
 
 export const commitlintCli = new Command()
   .command('commitlint')
+  .alias('cl')
   .description('Setup commit lint')
   .action(async () => commitLint());
 export const commitLint = async () => {

@@ -3,7 +3,8 @@ import { doAnalysis, installDependencies } from 'lib/lighthouse-config.ts';
 import versionCheckAndUpdate from 'lib/version-update.ts';
 
 export const lighthouseCli = new Command()
-  .command('lg')
+  .command('lighthouse')
+  .alias('lg')
   .description('Run a Lighthouse test')
   .option('--headless', 'Run Lighthouse in headless mode')
   .action(async cmd => lighthouse(cmd.headless));

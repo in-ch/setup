@@ -14,6 +14,7 @@ import { confirm, select } from '@inquirer/prompts';
 
 export const eslintCli = new Command()
   .command('eslint')
+  .alias('es')
   .description('Setup eslint file')
   .action(async () => eslint());
 export const eslint = async () => {
