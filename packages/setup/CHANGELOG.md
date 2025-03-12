@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/in-ch/setup/compare/v0.0.6...v0.0.7) (2025-03-12)
+
+
+### Features
+
+* add aliases for simpler command usage ([1fb7622](https://github.com/in-ch/setup/commit/1fb76229c1d0d9bc213be6bc86f3d24a4f32af23))
+
+
+### Bug Fixes
+
+* **docs:** google site verification ([c1fc598](https://github.com/in-ch/setup/commit/c1fc598cce35b0518cabb5015ad7f0ac7e11c662))
+* remove stdio option at initializePackageManager ([59ec72a](https://github.com/in-ch/setup/commit/59ec72a0a35d024dfef2630d898b331393a73c7b))
+* set default package manager to npm install ([5fb1f88](https://github.com/in-ch/setup/commit/5fb1f884bd12b6247bd9df385a04f0e7ec9bf7de))
+
 ### [0.0.6](https://github.com/in-ch/setup/compare/v0.0.5...v0.0.6) (2025-03-08)
 
 
