@@ -1,6 +1,7 @@
 import { Command } from 'commander';
 import { commitlintCli } from 'commands/commitlint.ts';
 import { editCli } from 'commands/edit.ts';
+import { envCli } from 'commands/env.ts';
 import { eslintCli } from 'commands/eslint.ts';
 import { gitmessageCli } from 'commands/gitmessage.ts';
 import { huskyCli } from 'commands/husky.ts';
@@ -41,6 +42,7 @@ async function main() {
     program.addCommand(vsCodeAutoPrefixCli);
     program.addCommand(latestCli);
     program.addCommand(updateCli);
+    program.addCommand(envCli);
     program.parse();
   } else {
     console.log('❌ No package manager initialized in this directory.');
