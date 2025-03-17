@@ -19,7 +19,7 @@ const COMMANDS = {
 };
 
 const filteredCommands = Object.entries(COMMANDS)
-  .filter(([key]) => ![COMMANDS.AIRBNB, COMMANDS.GOOGLE, COMMANDS.XO].includes(key))
+  .filter(([key]) => ![COMMANDS.AIRBNB, COMMANDS.GOOGLE, COMMANDS.XO].includes(key.toLowerCase()))
   .map(([key, value]) => ({ name: key, value }));
 const filteredCommandChoices = filteredCommands.map(command => command.value);
 
