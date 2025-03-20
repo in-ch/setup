@@ -2,6 +2,7 @@ import { execSync } from 'child_process';
 import { COMMANDS } from 'const/commands.ts';
 import { packageManagerInstallChoices } from 'const/packagesMng.ts';
 import fs from 'fs';
+import checkIsMonorepo from 'lib/check-is-monorepo.js';
 import detectPackageManager from 'lib/detect-package-manger.ts';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
 import path from 'path';
@@ -28,7 +29,7 @@ const installDependencies = async (): Promise<void> => {
       }
     }
     const installCommand = `${packageMng} ${dependencies}`;
-    execSync(`${installCommand} -D`, { stdio: 'inherit' });
+    execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
   } catch (error) {
     console.error('🥲 Fail to install prettier dependencies.... to \n' + error);
     process.exit(1);

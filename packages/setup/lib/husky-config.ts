@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
 import { packageManagerInstallChoices } from 'const/packagesMng.ts';
+import checkIsMonorepo from 'lib/check-is-monorepo.js';
 import detectPackageManager from 'lib/detect-package-manger.ts';
 import path from 'path';
 import { select } from '@inquirer/prompts';
@@ -26,7 +27,7 @@ const installDependencies = async (): Promise<void> => {
       }
     }
     const installCommand = `${packageMng} ${dependencies}`;
-    execSync(`${installCommand} -D`, { stdio: 'inherit' });
+    execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
   } catch (error) {
     console.error('🥲 🥲 🥲 Failed to install dependencies...');
     process.exit(1);

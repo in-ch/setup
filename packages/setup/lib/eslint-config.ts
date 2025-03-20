@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
 import { packageManagerInstallChoices } from 'const/packagesMng.ts';
 import fs from 'fs';
+import checkIsMonorepo from 'lib/check-is-monorepo.js';
 import detectPackageManager from 'lib/detect-package-manger.ts';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
 import path from 'path';
@@ -32,7 +33,7 @@ const installImportSortDependencies = async (): Promise<void> => {
       }
     }
     const installCommand = `${packageMng} ${dependencies}`;
-    execSync(`${installCommand} -D`, { stdio: 'inherit' });
+    execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
   } catch (error) {
     console.error('🥲 🥲 🥲 Failed to install dependencies...');
     process.exit(1);
@@ -65,7 +66,7 @@ const installAirbnbDependencies = async (): Promise<void> => {
       }
     }
     const installCommand = `${packageMng} ${dependencies}`;
-    execSync(`${installCommand} -D`, { stdio: 'inherit' });
+    execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
   } catch (error) {
     console.error('🥲 🥲 🥲 Failed to install dependencies...');
     process.exit(1);
@@ -97,7 +98,7 @@ const installGoogleDependencies = async (): Promise<void> => {
       }
     }
     const installCommand = `${packageMng} ${dependencies}`;
-    execSync(`${installCommand} -D`, { stdio: 'inherit' });
+    execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
   } catch (error) {
     console.error('🥲 🥲 🥲 Failed to install dependencies...');
     process.exit(1);
@@ -129,7 +130,7 @@ const installXODependencies = async (): Promise<void> => {
       }
     }
     const installCommand = `${packageMng} ${dependencies}`;
-    execSync(`${installCommand} -D`, { stdio: 'inherit' });
+    execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
   } catch (error) {
     console.error('🥲 🥲 🥲 Failed to install dependencies...');
     process.exit(1);
