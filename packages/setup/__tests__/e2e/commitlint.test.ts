@@ -2,12 +2,13 @@ import { spawnSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import getCliPath from './utils/getCliPath.ts';
-import { cleanUpTestEnv, makeTestEnv } from './utils/testEnv.ts';
+import { checkSetupIsRunning, cleanUpTestEnv, makeTestEnv } from './utils/testEnv.ts';
 
 const TEMP_DIR = path.join(__dirname, 'temp-test-dir');
 
 describe('[e2e] commitlint.test.ts', () => {
   beforeAll(() => {
+    checkSetupIsRunning();
     makeTestEnv();
   });
 
