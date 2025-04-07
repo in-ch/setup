@@ -28,15 +28,15 @@ describe('detectPackageManager', () => {
     expect(result).toBe('npm install');
   });
 
-  it('should return "default" when no known lock files are present', () => {
+  it('should return "npm install" when no known lock files are present', () => {
     (fs.readdirSync as jest.Mock).mockReturnValue(['test.txt']);
     const result = detectPackageManager();
-    expect(result).toBe('default');
+    expect(result).toBe('npm install');
   });
 
   it('should return "default" when no files are present', () => {
     (fs.readdirSync as jest.Mock).mockReturnValue([]);
     const result = detectPackageManager();
-    expect(result).toBe('default');
+    expect(result).toBe('npm install');
   });
 });

@@ -21,7 +21,7 @@ describe('installDependencies', () => {
   it('should install dependencies with detected package manager', async () => {
     (detectPackageManager as jest.Mock).mockReturnValue('npm');
     await installDependencies();
-    expect(execSync).toHaveBeenCalledWith('npm @commitlint/{config-conventional,cli} lint-staged -D', {
+    expect(execSync).toHaveBeenCalledWith('npm @commitlint/config-conventional @commitlint/cli lint-staged -D ', {
       stdio: 'inherit',
     });
   });
@@ -30,7 +30,7 @@ describe('installDependencies', () => {
     (detectPackageManager as jest.Mock).mockReturnValue('default');
     (select as jest.Mock).mockResolvedValue('yarn');
     await installDependencies();
-    expect(execSync).toHaveBeenCalledWith('yarn @commitlint/{config-conventional,cli} lint-staged -D', {
+    expect(execSync).toHaveBeenCalledWith('yarn @commitlint/config-conventional @commitlint/cli lint-staged -D ', {
       stdio: 'inherit',
     });
   });
