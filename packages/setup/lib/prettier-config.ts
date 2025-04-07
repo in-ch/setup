@@ -2,7 +2,7 @@ import { execSync } from 'child_process';
 import { COMMANDS } from 'const/commands.ts';
 import { packageManagerInstallChoices } from 'const/packagesMng.ts';
 import fs from 'fs';
-import checkIsMonorepo from 'lib/check-is-monorepo.js';
+import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
 import path from 'path';
