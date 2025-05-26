@@ -1,9 +1,9 @@
-import { commitLint } from 'commands/commitlint.ts';
-import { eslint } from 'commands/eslint.ts';
-import { gitmessage } from 'commands/gitmessage.ts';
-import { husky } from 'commands/husky.ts';
-import { prettier } from 'commands/prettier.ts';
-import { typescript } from 'commands/typescript.ts';
+import { commitLint } from 'src/commands/commitlint.ts';
+import { eslint } from 'src/commands/eslint.ts';
+import { gitmessage } from 'src/commands/gitmessage.ts';
+import { husky } from 'src/commands/husky.ts';
+import { prettier } from 'src/commands/prettier.ts';
+import { typescript } from 'src/commands/typescript.ts';
 
 const COMMANDS = {
   ESLINT: 'eslint',

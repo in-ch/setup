@@ -15,9 +15,11 @@
     "baseUrl": ".",
     "allowJs": true,
     "paths": {
-      "lib/*": ["lib/*"],
-      "const/": ["const/*"],
-      "commands/": ["commands/*"]
+      "lib/*": ["src/lib/*"],
+      "const/": ["src/const/*"],
+      "commands/": ["src/commands/*"],
+      "utils/": ["src/utils/*"],
+      "src/": ["src/*"]
     }
-  },
+  }
 }

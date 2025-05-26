@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { execSync } from 'child_process';
 import { Command } from 'commander';
-import { packageManagerChoices } from 'const/packagesMng.ts';
+import { packageManagerChoices } from 'src/const/packagesMng.ts';
 import { select } from '@inquirer/prompts';
 
 export const pkgmngCli = new Command()

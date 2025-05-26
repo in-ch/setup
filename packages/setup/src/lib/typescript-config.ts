@@ -1,12 +1,8 @@
 import { execSync } from 'child_process';
-import { COMMANDS } from 'const/commands.ts';
-import { packageManagerInstallChoices } from 'const/packagesMng.ts';
-import fs from 'fs';
+import { packageManagerInstallChoices } from 'src/const/packagesMng.ts';
 import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';
-import getSettingFilePath from 'lib/get-setting-file-path.ts';
 import fileErrorHandle from 'src/utils/file-error-handle.ts';
-import path from 'path';
 import { select } from '@inquirer/prompts';
 
 /**
@@ -14,9 +10,9 @@ import { select } from '@inquirer/prompts';
  * @returns {Promise<void>}
  */
 const installDependencies = async (): Promise<void> => {
-  console.log('\nInstalling eslint dependencies...\n');
+  console.log('\nInstalling typescript dependencies...\n');
   try {
-    const dependencies = ['@commitlint/config-conventional', '@commitlint/cli', 'lint-staged'];
+    const dependencies = 'typescript @types/node @types/react';
     let packageMng = detectPackageManager();
     if (packageMng === 'default') {
       console.log(
@@ -33,25 +29,24 @@ const installDependencies = async (): Promise<void> => {
         packageMng = answer;
       }
     }
-    const installCommand = `${packageMng} ${dependencies.join(' ')}`;
+    const installCommand = `${packageMng} ${dependencies}`;
     execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
   } catch (error) {
-    console.error("🥲 🥲 🥲 Failed to install commitlint's dependencies...");
+    console.error('🥲 🥲 🥲 Failed to install dependencies...');
     process.exit(1);
   }
 };
 
+/**
+ * Setup typescript file
+ * @returns {void}
+ */
 const createConfigFiles = (): void => {
-  const rootDir = process.cwd();
-  const commitlintrcConfig = fs.readFileSync(getSettingFilePath(COMMANDS.COMMIT_LINT), 'utf-8');
-  const lintStagedConfig = fs.readFileSync(getSettingFilePath(COMMANDS.LINT_STAGE), 'utf-8');
   try {
-    fs.writeFileSync(path.join(rootDir, '.commitlintrc.json'), commitlintrcConfig, 'utf-8');
-    fs.writeFileSync(path.join(rootDir, '.lintstagedrc.json'), lintStagedConfig, 'utf-8');
-
-    console.log('\n🎉 Successfully created the Commitlint configuration file.');
-  } catch (error:unknown) {
-    fileErrorHandle(error, 'Failed to create commitlint.config.json file');
+    console.log('Configure Typescript');
+    execSync(`npx tsc --init`);
+  } catch (error: unknown) {
+    fileErrorHandle(error, 'Failed to create typescript.config.json file');
   }
 };
 

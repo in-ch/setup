@@ -1,4 +1,4 @@
-import { pkgmng } from 'commands/pkgmng.ts';
+import { pkgmng } from 'src/commands/pkgmng.ts';
 import fs from 'fs-extra';
 import path from 'path';
 

@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import { packageManagerInstallChoices } from 'const/packagesMng.ts';
+import { packageManagerInstallChoices } from 'src/const/packagesMng.ts';
 import fs from 'fs';
 import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';

@@ -1,8 +1,8 @@
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import checkVsCodeExtensionInstalled from './check-vscode-extension-installed.ts';
-import installVscodeExtension from './install-vscode-extension.ts';
+import checkVsCodeExtensionInstalled from 'lib/check-vscode-extension-installed.ts';
+import installVscodeExtension from 'lib/install-vscode-extension.ts';
 import fileErrorHandle from 'src/utils/file-error-handle.ts';
 
 const vscodeSettingsPath = (() => {

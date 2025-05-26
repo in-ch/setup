@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import { COMMANDS } from 'const/commands.ts';
+import { COMMANDS } from 'src/const/commands.ts';
 import fs from 'fs';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
 import fileErrorHandle from 'src/utils/file-error-handle.ts';

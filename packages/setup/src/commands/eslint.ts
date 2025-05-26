@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { COMMANDS, eslintConfigTypeChoices, eslintConfigTypeChoicesValue } from 'const/commands.ts';
+import { COMMANDS, eslintConfigTypeChoices, eslintConfigTypeChoicesValue } from 'src/const/commands.ts';
 import { existsSync } from 'fs';
 import {
   createConfigFiles,

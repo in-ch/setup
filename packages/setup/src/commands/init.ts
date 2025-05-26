@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import { commandFuc, CommandsTypes, filteredCommandChoices } from 'const/commands.ts';
+import { commandFuc, CommandsTypes, filteredCommandChoices } from 'src/const/commands.ts';
 import versionCheckAndUpdate from 'lib/version-update.ts';
 import { checkbox } from '@inquirer/prompts';
 

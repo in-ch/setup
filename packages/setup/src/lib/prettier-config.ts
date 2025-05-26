@@ -1,16 +1,18 @@
 import { execSync } from 'child_process';
-import { packageManagerInstallChoices } from 'const/packagesMng.ts';
+import { COMMANDS } from 'src/const/commands.ts';
+import { packageManagerInstallChoices } from 'src/const/packagesMng.ts';
+import fs from 'fs';
 import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';
+import getSettingFilePath from 'lib/get-setting-file-path.ts';
 import fileErrorHandle from 'src/utils/file-error-handle.ts';
 import path from 'path';
 import { select } from '@inquirer/prompts';
 
 const installDependencies = async (): Promise<void> => {
-  console.log('\nInstalling husky dependencies...\n');
-
+  console.log('\nInstalling prettier dependencies...\n');
   try {
-    const dependencies = `husky -D`;
+    const dependencies = 'prettier prettier-plugin-sort-re-exports @trivago/prettier-plugin-sort-imports';
     let packageMng = detectPackageManager();
     if (packageMng === 'default') {
       console.log(
@@ -30,40 +32,39 @@ const installDependencies = async (): Promise<void> => {
     const installCommand = `${packageMng} ${dependencies}`;
     execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
   } catch (error) {
-    console.error('🥲 🥲 🥲 Failed to install dependencies...');
+    console.error('🥲 Fail to install prettier dependencies.... to \n' + error);
     process.exit(1);
   }
 };
 
-const createConfigHusky = async (): Promise<void> => {
-  execSync(`npx husky init`, { stdio: 'inherit' });
-};
+const createConfigFiles = () => {
+  const rootDir = process.cwd();
+  const prettierConfig = fs.readFileSync(getSettingFilePath(COMMANDS.PRETTIER), 'utf-8');
+  const prettierIgnore = `node_modules/
+dist/
+build/
+coverage/
+*.min.js
+*.bundle.js
+*.config.js
+*.cjs
+logs/
+*.log
+.vscode/
+.DS_Store
+.env
+.env.*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml`;
 
-const updatePackageJson = async (): Promise<void> => {
-  const packageJsonPath = path.resolve(process.cwd(), 'package.json');
-  const fs = await import('fs-extra');
   try {
-    await fs.access(packageJsonPath);
-  } catch (error) {
-    console.error('Could not find the package.json file.');
-    return;
-  }
-
-  try {
-    const data = await fs.readFile(packageJsonPath, 'utf-8');
-    const packageJson = JSON.parse(data);
-
-    if (!packageJson.scripts) {
-      packageJson.scripts = {};
-    }
-
-    packageJson.scripts.test = 'echo "Error: no test specified" && exit 1';
-
-    await fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2), 'utf-8');
-    console.log('package.json file updated successfully.');
+    fs.writeFileSync(path.join(rootDir, '.prettierrc.cjs'), prettierConfig, 'utf-8');
+    fs.writeFileSync(path.join(rootDir, '.prettierignore'), prettierIgnore, 'utf-8');
+    console.log('🎉 Prettier configuration file has been created.');
   } catch (error: unknown) {
-    fileErrorHandle(error, 'Failed to update package.json file');
+    fileErrorHandle(error, `Failed to create prettier file}`);
   }
 };
 
-export { createConfigHusky, installDependencies, updatePackageJson };
+export { installDependencies, createConfigFiles };

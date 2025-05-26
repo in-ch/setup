@@ -1,4 +1,4 @@
-import { extension } from 'const/commands.ts';
+import { extension } from 'src/const/commands.ts';
 import getGlobalPackagePath from 'lib/get-global-package-path.ts';
 import path from 'path';
 

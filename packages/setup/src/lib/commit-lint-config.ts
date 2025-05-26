@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
-import { COMMANDS } from 'const/commands.ts';
-import { packageManagerInstallChoices } from 'const/packagesMng.ts';
+import { COMMANDS } from 'src/const/commands.ts';
+import { packageManagerInstallChoices } from 'src/const/packagesMng.ts';
 import fs from 'fs';
 import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';
@@ -9,10 +9,14 @@ import fileErrorHandle from 'src/utils/file-error-handle.ts';
 import path from 'path';
 import { select } from '@inquirer/prompts';
 
+/**
+ * install dependencies
+ * @returns {Promise<void>}
+ */
 const installDependencies = async (): Promise<void> => {
-  console.log('\nInstalling prettier dependencies...\n');
+  console.log('\nInstalling eslint dependencies...\n');
   try {
-    const dependencies = 'prettier prettier-plugin-sort-re-exports @trivago/prettier-plugin-sort-imports';
+    const dependencies = ['@commitlint/config-conventional', '@commitlint/cli', 'lint-staged'];
     let packageMng = detectPackageManager();
     if (packageMng === 'default') {
       console.log(
@@ -29,41 +33,25 @@ const installDependencies = async (): Promise<void> => {
         packageMng = answer;
       }
     }
-    const installCommand = `${packageMng} ${dependencies}`;
+    const installCommand = `${packageMng} ${dependencies.join(' ')}`;
     execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
   } catch (error) {
-    console.error('🥲 Fail to install prettier dependencies.... to \n' + error);
+    console.error("🥲 🥲 🥲 Failed to install commitlint's dependencies...");
     process.exit(1);
   }
 };
 
-const createConfigFiles = () => {
+const createConfigFiles = (): void => {
   const rootDir = process.cwd();
-  const prettierConfig = fs.readFileSync(getSettingFilePath(COMMANDS.PRETTIER), 'utf-8');
-  const prettierIgnore = `node_modules/
-dist/
-build/
-coverage/
-*.min.js
-*.bundle.js
-*.config.js
-*.cjs
-logs/
-*.log
-.vscode/
-.DS_Store
-.env
-.env.*
-package-lock.json
-yarn.lock
-pnpm-lock.yaml`;
-
+  const commitlintrcConfig = fs.readFileSync(getSettingFilePath(COMMANDS.COMMIT_LINT), 'utf-8');
+  const lintStagedConfig = fs.readFileSync(getSettingFilePath(COMMANDS.LINT_STAGE), 'utf-8');
   try {
-    fs.writeFileSync(path.join(rootDir, '.prettierrc.cjs'), prettierConfig, 'utf-8');
-    fs.writeFileSync(path.join(rootDir, '.prettierignore'), prettierIgnore, 'utf-8');
-    console.log('🎉 Prettier configuration file has been created.');
-  } catch (error: unknown) {
-    fileErrorHandle(error, `Failed to create prettier file}`);
+    fs.writeFileSync(path.join(rootDir, '.commitlintrc.json'), commitlintrcConfig, 'utf-8');
+    fs.writeFileSync(path.join(rootDir, '.lintstagedrc.json'), lintStagedConfig, 'utf-8');
+
+    console.log('\n🎉 Successfully created the Commitlint configuration file.');
+  } catch (error:unknown) {
+    fileErrorHandle(error, 'Failed to create commitlint.config.json file');
   }
 };
 

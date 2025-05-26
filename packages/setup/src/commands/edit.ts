@@ -1,6 +1,6 @@
 import { exec } from 'child_process';
 import { Command } from 'commander';
-import { commandChoices, CommandsTypes } from 'const/commands.ts';
+import { commandChoices, CommandsTypes } from 'src/const/commands.ts';
 import getOpenCommand from 'lib/get-open-command.ts';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
 import versionCheckAndUpdate from 'lib/version-update.ts';

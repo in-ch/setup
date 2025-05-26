@@ -1,18 +1,16 @@
 import { execSync } from 'child_process';
-import { packageManagerInstallChoices } from 'const/packagesMng.ts';
+import { packageManagerInstallChoices } from 'src/const/packagesMng.ts';
 import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';
 import fileErrorHandle from 'src/utils/file-error-handle.ts';
+import path from 'path';
 import { select } from '@inquirer/prompts';
 
-/**
- * install dependencies
- * @returns {Promise<void>}
- */
 const installDependencies = async (): Promise<void> => {
-  console.log('\nInstalling typescript dependencies...\n');
+  console.log('\nInstalling husky dependencies...\n');
+
   try {
-    const dependencies = 'typescript @types/node @types/react';
+    const dependencies = `husky -D`;
     let packageMng = detectPackageManager();
     if (packageMng === 'default') {
       console.log(
@@ -37,17 +35,35 @@ const installDependencies = async (): Promise<void> => {
   }
 };
 
-/**
- * Setup typescript file
- * @returns {void}
- */
-const createConfigFiles = (): void => {
+const createConfigHusky = async (): Promise<void> => {
+  execSync(`npx husky init`, { stdio: 'inherit' });
+};
+
+const updatePackageJson = async (): Promise<void> => {
+  const packageJsonPath = path.resolve(process.cwd(), 'package.json');
+  const fs = await import('fs-extra');
   try {
-    console.log('Configure Typescript');
-    execSync(`npx tsc --init`);
+    await fs.access(packageJsonPath);
+  } catch (error) {
+    console.error('Could not find the package.json file.');
+    return;
+  }
+
+  try {
+    const data = await fs.readFile(packageJsonPath, 'utf-8');
+    const packageJson = JSON.parse(data);
+
+    if (!packageJson.scripts) {
+      packageJson.scripts = {};
+    }
+
+    packageJson.scripts.test = 'echo "Error: no test specified" && exit 1';
+
+    await fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2), 'utf-8');
+    console.log('package.json file updated successfully.');
   } catch (error: unknown) {
-    fileErrorHandle(error, 'Failed to create typescript.config.json file');
+    fileErrorHandle(error, 'Failed to update package.json file');
   }
 };
 
-export { installDependencies, createConfigFiles };
+export { createConfigHusky, installDependencies, updatePackageJson };
