@@ -2,6 +2,7 @@ import { execSync } from 'child_process';
 import { packageManagerInstallChoices } from 'const/packagesMng.ts';
 import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';
+import fileErrorHandle from 'src/utils/file-error-handle.ts';
 import { select } from '@inquirer/prompts';
 
 /**
@@ -41,8 +42,12 @@ const installDependencies = async (): Promise<void> => {
  * @returns {void}
  */
 const createConfigFiles = (): void => {
-  console.log('Configure Typescript');
-  execSync(`npx tsc --init`);
+  try {
+    console.log('Configure Typescript');
+    execSync(`npx tsc --init`);
+  } catch (error: unknown) {
+    fileErrorHandle(error, 'Failed to create typescript.config.json file');
+  }
 };
 
 export { installDependencies, createConfigFiles };

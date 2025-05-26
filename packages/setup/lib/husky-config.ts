@@ -2,6 +2,7 @@ import { execSync } from 'child_process';
 import { packageManagerInstallChoices } from 'const/packagesMng.ts';
 import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';
+import fileErrorHandle from 'src/utils/file-error-handle.ts';
 import path from 'path';
 import { select } from '@inquirer/prompts';
 
@@ -60,8 +61,8 @@ const updatePackageJson = async (): Promise<void> => {
 
     await fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2), 'utf-8');
     console.log('package.json file updated successfully.');
-  } catch (error) {
-    console.error('An error occurred while reading or modifying the package.json file:', error);
+  } catch (error: unknown) {
+    fileErrorHandle(error, 'Failed to update package.json file');
   }
 };
 

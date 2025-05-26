@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
 import fs from 'fs-extra';
+import fileErrorHandle from 'src/utils/file-error-handle.ts';
 import path from 'path';
 
 export function getPackageInfo(packageName = '@in-ch/setup') {
@@ -11,8 +12,8 @@ export function getPackageInfo(packageName = '@in-ch/setup') {
     } else {
       throw new Error('package.json not found');
     }
-  } catch (error) {
-    console.error('Error fetching global package.json:', error);
+  } catch (error: unknown) {
+    fileErrorHandle(error, 'Failed to get package info');
     return null;
   }
 }

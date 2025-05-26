@@ -5,6 +5,7 @@ import fs from 'fs';
 import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
+import fileErrorHandle from 'src/utils/file-error-handle.ts';
 import path from 'path';
 import { select } from '@inquirer/prompts';
 
@@ -61,9 +62,8 @@ pnpm-lock.yaml`;
     fs.writeFileSync(path.join(rootDir, '.prettierrc.cjs'), prettierConfig, 'utf-8');
     fs.writeFileSync(path.join(rootDir, '.prettierignore'), prettierIgnore, 'utf-8');
     console.log('🎉 Prettier configuration file has been created.');
-  } catch (error) {
-    console.error('🥲 Failed to setup prettier... to  \n', error);
-    process.exit(1);
+  } catch (error: unknown) {
+    fileErrorHandle(error, `Failed to create prettier file}`);
   }
 };
 

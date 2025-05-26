@@ -4,6 +4,7 @@ import fs from 'fs';
 import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
+import fileErrorHandle from 'src/utils/file-error-handle.ts';
 import path from 'path';
 import { select } from '@inquirer/prompts';
 
@@ -140,12 +141,12 @@ const installXODependencies = async (): Promise<void> => {
 const createConfigFiles = (command: string): void => {
   const rootDir = process.cwd();
   const eslintConfig = fs.readFileSync(getSettingFilePath(command), 'utf-8');
+  const targetFilePath = path.join(rootDir, 'eslint.config.mjs');
   try {
-    fs.writeFileSync(path.join(rootDir, 'eslint.config.mjs'), eslintConfig, 'utf-8');
+    fs.writeFileSync(targetFilePath, eslintConfig, 'utf-8');
     console.log('\n🎉 Successfully created the ESLint configuration file.');
-  } catch (error) {
-    console.error('🥲 🥲 🥲 Failed to setup eslint... to\n', error);
-    process.exit(1);
+  } catch (error: unknown) {
+    fileErrorHandle(error, `Failed to create eslint.config.mjs file`);
   }
 };
 

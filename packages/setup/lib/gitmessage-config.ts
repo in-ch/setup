@@ -2,6 +2,7 @@ import { execSync } from 'child_process';
 import { COMMANDS } from 'const/commands.ts';
 import fs from 'fs';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
+import fileErrorHandle from 'src/utils/file-error-handle.ts';
 import path from 'path';
 
 /**
@@ -23,9 +24,8 @@ const createConfigFiles = (): void => {
     console.log(
       'You can now write commits following the template using the commit button in your IDE tool or the `git commit` command in the terminal.'
     );
-  } catch (error) {
-    console.error('🥲 🥲 🥲 Failed to setup git message... to  \n', error);
-    process.exit(1);
+  } catch (error: unknown) {
+    fileErrorHandle(error, 'Failed to create git message configuration file');
   }
 };
 

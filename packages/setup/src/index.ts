@@ -15,7 +15,6 @@ import { typescriptCli } from 'commands/typescript.ts';
 import { updateCli } from 'commands/update.ts';
 import { vsCodeAutoPrefixCli } from 'commands/vscode-autoprefix.ts';
 import checkPkgInit from 'lib/check-pkg-init.js';
-import ErrorHandle from 'lib/error-handle.ts';
 import { getPackageInfo } from 'lib/get-package-info.ts';
 
 process.on('SIGINT', () => process.exit(0));
@@ -51,8 +50,5 @@ async function main() {
   }
 }
 
-try {
-  main();
-} catch (error: unknown) {
-  ErrorHandle(error);
-}
+main();
+

@@ -5,6 +5,7 @@ import fs from 'fs';
 import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
+import fileErrorHandle from 'src/utils/file-error-handle.ts';
 import path from 'path';
 import { select } from '@inquirer/prompts';
 
@@ -49,9 +50,8 @@ const createConfigFiles = (): void => {
     fs.writeFileSync(path.join(rootDir, '.lintstagedrc.json'), lintStagedConfig, 'utf-8');
 
     console.log('\n🎉 Successfully created the Commitlint configuration file.');
-  } catch (error) {
-    console.error('🥲 🥲 🥲 Failed to setup commit lint... to\n', error);
-    process.exit(1);
+  } catch (error:unknown) {
+    fileErrorHandle(error, 'Failed to create commitlint.config.json file');
   }
 };
 

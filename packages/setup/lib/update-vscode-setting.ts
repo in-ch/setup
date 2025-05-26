@@ -3,6 +3,7 @@ import os from 'os';
 import path from 'path';
 import checkVsCodeExtensionInstalled from './check-vscode-extension-installed.ts';
 import installVscodeExtension from './install-vscode-extension.ts';
+import fileErrorHandle from 'src/utils/file-error-handle.ts';
 
 const vscodeSettingsPath = (() => {
   const platform = os.platform();
@@ -44,9 +45,10 @@ const newSettings = {
  * @returns {void}
  */
 export default function updateVscodeSetting(): void {
-  fs.readFile(vscodeSettingsPath, 'utf8', async (err, data) => {
-    if (err && err.code !== 'ENOENT') {
-      console.error('Error reading VSCode settings.json:', err);
+  try {
+    fs.readFile(vscodeSettingsPath, 'utf8', async (err, data) => {
+      if (err && err.code !== 'ENOENT') {
+        console.error('Error reading VSCode settings.json:', err);
       return;
     }
     const installed = await checkVsCodeExtensionInstalled('esbenp.prettier-vscode');
@@ -70,6 +72,9 @@ export default function updateVscodeSetting(): void {
       } else {
         console.log('VSCode settings.json updated successfully!');
       }
+      });
     });
-  });
+  } catch (error: unknown) {
+    fileErrorHandle(error, 'Failed to update vscode settings.json file');
+  }
 }
