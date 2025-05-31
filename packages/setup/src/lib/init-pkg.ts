@@ -1,6 +1,6 @@
-import { pkgmng } from 'src/commands/pkgmng.ts';
 import fs from 'fs-extra';
 import path from 'path';
+import { pkgmng } from 'src/commands/pkgmng.ts';
 
 /**
  * Initializes the package manager configuration.

@@ -1,4 +1,4 @@
-import FILE_ERROR from "src/const/error/error.ts";
+import FILE_ERROR from 'src/const/error/error.ts';
 
 export default function fileErrorHandle(error: unknown, message: string) {
   if (error instanceof Error) {

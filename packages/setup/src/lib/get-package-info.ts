@@ -1,7 +1,7 @@
 import { execSync } from 'child_process';
 import fs from 'fs-extra';
-import fileErrorHandle from 'src/utils/file-error-handle.ts';
 import path from 'path';
+import fileErrorHandle from 'src/utils/file-error-handle.ts';
 
 export function getPackageInfo(packageName = '@in-ch/setup') {
   try {

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { husky } from 'src/commands/husky.ts';
 import { existsSync } from 'fs';
 import { createConfigFiles, installDependencies } from 'lib/commit-lint-config.ts';
 import versionCheckAndUpdate from 'lib/version-update.ts';
+import { husky } from 'src/commands/husky.ts';
 import { confirm } from '@inquirer/prompts';
 
 export const commitlintCli = new Command()

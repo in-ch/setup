@@ -1,4 +1,6 @@
 import { Command } from 'commander';
+import checkPkgInit from 'lib/check-pkg-init.js';
+import { getPackageInfo } from 'lib/get-package-info.ts';
 import { commitlintCli } from 'src/commands/commitlint.ts';
 import { cursorRuleCli } from 'src/commands/cursor-rule.ts';
 import { editCli } from 'src/commands/edit.ts';
@@ -15,8 +17,6 @@ import { prettierCli } from 'src/commands/prettier.ts';
 import { typescriptCli } from 'src/commands/typescript.ts';
 import { updateCli } from 'src/commands/update.ts';
 import { vsCodeAutoPrefixCli } from 'src/commands/vscode-autoprefix.ts';
-import checkPkgInit from 'lib/check-pkg-init.js';
-import { getPackageInfo } from 'lib/get-package-info.ts';
 
 process.on('SIGINT', () => process.exit(0));
 process.on('SIGTERM', () => process.exit(0));
@@ -53,4 +53,3 @@ async function main() {
 }
 
 main();
-

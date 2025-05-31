@@ -1,7 +1,7 @@
 import { execSync } from 'child_process';
-import { packageManagerInstallChoices } from 'src/const/packagesMng.ts';
 import checkIsMonorepo from 'lib/check-is-monorepo.ts';
 import detectPackageManager from 'lib/detect-package-manger.ts';
+import { packageManagerInstallChoices } from 'src/const/packagesMng.ts';
 import fileErrorHandle from 'src/utils/file-error-handle.ts';
 import { select } from '@inquirer/prompts';
 

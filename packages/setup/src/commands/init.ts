@@ -1,6 +1,6 @@
 import { Command } from 'commander';
-import { commandFuc, CommandsTypes, filteredCommandChoices } from 'src/const/commands.ts';
 import versionCheckAndUpdate from 'lib/version-update.ts';
+import { commandFuc, CommandsTypes, filteredCommandChoices } from 'src/const/commands.ts';
 import { checkbox } from '@inquirer/prompts';
 
 export const initCli = new Command()

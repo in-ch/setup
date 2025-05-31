@@ -1,7 +1,7 @@
 import * as fs from 'fs-extra';
 import path from 'path';
-import { confirm } from '@inquirer/prompts';
 import fileErrorHandle from 'src/utils/file-error-handle.ts';
+import { confirm } from '@inquirer/prompts';
 
 /**
  * Make cursor rules

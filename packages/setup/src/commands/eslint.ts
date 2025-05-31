@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { COMMANDS, eslintConfigTypeChoices, eslintConfigTypeChoicesValue } from 'src/const/commands.ts';
 import { existsSync } from 'fs';
 import {
   createConfigFiles,
@@ -10,6 +9,7 @@ import {
   installXODependencies,
 } from 'lib/eslint-config.ts';
 import versionCheckAndUpdate from 'lib/version-update.ts';
+import { COMMANDS, eslintConfigTypeChoices, eslintConfigTypeChoicesValue } from 'src/const/commands.ts';
 import { confirm, select } from '@inquirer/prompts';
 
 export const eslintCli = new Command()

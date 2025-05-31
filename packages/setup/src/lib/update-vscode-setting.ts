@@ -1,8 +1,8 @@
 import fs from 'fs';
-import os from 'os';
-import path from 'path';
 import checkVsCodeExtensionInstalled from 'lib/check-vscode-extension-installed.ts';
 import installVscodeExtension from 'lib/install-vscode-extension.ts';
+import os from 'os';
+import path from 'path';
 import fileErrorHandle from 'src/utils/file-error-handle.ts';
 
 const vscodeSettingsPath = (() => {
@@ -49,29 +49,29 @@ export default function updateVscodeSetting(): void {
     fs.readFile(vscodeSettingsPath, 'utf8', async (err, data) => {
       if (err && err.code !== 'ENOENT') {
         console.error('Error reading VSCode settings.json:', err);
-      return;
-    }
-    const installed = await checkVsCodeExtensionInstalled('esbenp.prettier-vscode');
-    if (!installed) {
-      await installVscodeExtension('esbenp.prettier-vscode');
-    }
-
-    let settings = {};
-    if (data) {
-      try {
-        settings = JSON.parse(data);
-      } catch (parseErr) {
-        console.error('Error parsing settings.json:', parseErr);
         return;
       }
-    }
-    const updatedSettings = { ...settings, ...newSettings };
-    fs.writeFile(vscodeSettingsPath, JSON.stringify(updatedSettings, null, 2), 'utf8', writeErr => {
-      if (writeErr) {
-        console.error('Error writing to settings.json:', writeErr);
-      } else {
-        console.log('VSCode settings.json updated successfully!');
+      const installed = await checkVsCodeExtensionInstalled('esbenp.prettier-vscode');
+      if (!installed) {
+        await installVscodeExtension('esbenp.prettier-vscode');
       }
+
+      let settings = {};
+      if (data) {
+        try {
+          settings = JSON.parse(data);
+        } catch (parseErr) {
+          console.error('Error parsing settings.json:', parseErr);
+          return;
+        }
+      }
+      const updatedSettings = { ...settings, ...newSettings };
+      fs.writeFile(vscodeSettingsPath, JSON.stringify(updatedSettings, null, 2), 'utf8', writeErr => {
+        if (writeErr) {
+          console.error('Error writing to settings.json:', writeErr);
+        } else {
+          console.log('VSCode settings.json updated successfully!');
+        }
       });
     });
   } catch (error: unknown) {

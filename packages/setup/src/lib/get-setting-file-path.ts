@@ -1,6 +1,6 @@
-import { extension } from 'src/const/commands.ts';
 import getGlobalPackagePath from 'lib/get-global-package-path.ts';
 import path from 'path';
+import { extension } from 'src/const/commands.ts';
 
 /**
  * @param {string} file Config file name

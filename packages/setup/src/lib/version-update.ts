@@ -1,8 +1,8 @@
 import { execSync } from 'child_process';
-import { pkgmng } from 'src/commands/pkgmng.ts';
-import { confirm } from '@inquirer/prompts';
 import checkLatestPkgVersion from 'lib/check-latest-pkg-version.ts';
 import { getPackageInfo } from 'lib/get-package-info.ts';
+import { pkgmng } from 'src/commands/pkgmng.ts';
+import { confirm } from '@inquirer/prompts';
 
 export function initializePackageManager() {
   try {
