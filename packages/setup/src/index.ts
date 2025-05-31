@@ -1,5 +1,6 @@
 import { Command } from 'commander';
 import { commitlintCli } from 'src/commands/commitlint.ts';
+import { cursorRuleCli } from 'src/commands/cursor-rule.ts';
 import { editCli } from 'src/commands/edit.ts';
 import { envCli } from 'src/commands/env.ts';
 import { eslintCli } from 'src/commands/eslint.ts';
@@ -43,6 +44,7 @@ async function main() {
     program.addCommand(latestCli);
     program.addCommand(updateCli);
     program.addCommand(envCli);
+    program.addCommand(cursorRuleCli);
     program.parse();
   } else {
     console.log('❌ No package manager initialized in this directory.');

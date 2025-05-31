@@ -38,7 +38,19 @@
     "husky-config",
     "commitlint-config",
     "starter template",
-    "git commit"
+    "git commit",
+    "github actions",
+    "docker",
+    "dockerfile",
+    "docker-compose",
+    "testing",
+    "unit testing",
+    "e2e testing",
+    "playwright",
+    "storybook",
+    "component library",
+    "react testing library",
+    "coverage"
   ],
   "scripts": {
     "dev": "tsup --watch",
