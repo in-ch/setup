@@ -1,159 +1,49 @@
-import { execSync } from 'child_process';
-import fs from 'fs';
-import checkIsMonorepo from 'lib/check-is-monorepo.ts';
-import detectPackageManager from 'lib/detect-package-manger.ts';
 import getSettingFilePath from 'lib/get-setting-file-path.ts';
-import path from 'path';
-import { packageManagerInstallChoices } from 'src/const/packagesMng.ts';
-import fileErrorHandle from 'src/utils/file-error-handle.ts';
-import { select } from '@inquirer/prompts';
+import { writeFileSafely } from 'lib/utils.ts';
+import { installEslintDependencies } from 'lib/package-manager.ts';
 
 /**
  * eslint import sort install dependencies
- * @returns {Promise<void>}
+ * @param {string} command Config Type
+ * @returns {boolean} true or false
  */
-const installImportSortDependencies = async (): Promise<void> => {
-  console.log('\nInstalling eslint dependencies...\n');
-  try {
-    const dependencies =
-      'eslint @types/eslint eslint-plugin-jsdoc eslint-plugin-no-for-of-array eslint-plugin-vue @eslint/js typescript-eslint globals';
-    let packageMng = detectPackageManager();
-    if (packageMng === 'default') {
-      console.log(
-        'The package manager could not be detected. \n\n1. If this is not the project root, please run the command from the root directory. \n2. If you have not installed the packages beforehand, please install them first and then try again.\n\n'
-      );
-      if (packageMng === 'default') {
-        const answer = await select({
-          message: 'Which package manager would you like to use for installation? \n',
-          choices: packageManagerInstallChoices,
-        });
-        if (answer === 'cancel') {
-          return;
-        }
-        packageMng = answer;
-      }
-    }
-    const installCommand = `${packageMng} ${dependencies}`;
-    execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
-  } catch (error) {
-    console.error('🥲 🥲 🥲 Failed to install dependencies...');
-    process.exit(1);
-  }
-};
-
-/**
- * eslint airbnb install dependencies
- * @returns {Promise<void>}
- */
-const installAirbnbDependencies = async (): Promise<void> => {
-  console.log('\nInstalling eslint dependencies...\n');
-  try {
-    const dependencies =
-      'eslint eslint-config-airbnb-base eslint-plugin-import @typescript-eslint/parser @typescript-eslint/eslint-plugin';
-    let packageMng = detectPackageManager();
-    if (packageMng === 'default') {
-      console.log(
-        'The package manager could not be detected. \n\n1. If this is not the project root, please run the command from the root directory. \n2. If you have not installed the packages beforehand, please install them first and then try again.\n\n'
-      );
-      if (packageMng === 'default') {
-        const answer = await select({
-          message: 'Which package manager would you like to use for installation? \n',
-          choices: packageManagerInstallChoices,
-        });
-        if (answer === 'cancel') {
-          return;
-        }
-        packageMng = answer;
-      }
-    }
-    const installCommand = `${packageMng} ${dependencies}`;
-    execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
-  } catch (error) {
-    console.error('🥲 🥲 🥲 Failed to install dependencies...');
-    process.exit(1);
-  }
-};
-
-/**
- * eslint google install dependencies
- * @returns {Promise<void>}
- */
-const installGoogleDependencies = async (): Promise<void> => {
-  console.log('\nInstalling eslint dependencies...\n');
-  try {
-    const dependencies = 'eslint eslint-config-google';
-    let packageMng = detectPackageManager();
-    if (packageMng === 'default') {
-      console.log(
-        'The package manager could not be detected. \n\n1. If this is not the project root, please run the command from the root directory. \n2. If you have not installed the packages beforehand, please install them first and then try again.\n\n'
-      );
-      if (packageMng === 'default') {
-        const answer = await select({
-          message: 'Which package manager would you like to use for installation? \n',
-          choices: packageManagerInstallChoices,
-        });
-        if (answer === 'cancel') {
-          return;
-        }
-        packageMng = answer;
-      }
-    }
-    const installCommand = `${packageMng} ${dependencies}`;
-    execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
-  } catch (error) {
-    console.error('🥲 🥲 🥲 Failed to install dependencies...');
-    process.exit(1);
-  }
-};
-
-/**
- * eslint xo install dependencies
- * @returns {Promise<void>}
- */
-const installXODependencies = async (): Promise<void> => {
-  console.log('\nInstalling eslint dependencies...\n');
-  try {
-    const dependencies = 'eslint eslint-config-xo';
-    let packageMng = detectPackageManager();
-    if (packageMng === 'default') {
-      console.log(
-        'The package manager could not be detected. \n\n1. If this is not the project root, please run the command from the root directory. \n2. If you have not installed the packages beforehand, please install them first and then try again.\n\n'
-      );
-      if (packageMng === 'default') {
-        const answer = await select({
-          message: 'Which package manager would you like to use for installation? \n',
-          choices: packageManagerInstallChoices,
-        });
-        if (answer === 'cancel') {
-          return;
-        }
-        packageMng = answer;
-      }
-    }
-    const installCommand = `${packageMng} ${dependencies}`;
-    execSync(`${installCommand} -D ${checkIsMonorepo() ? '-w' : ''}`, { stdio: 'inherit' });
-  } catch (error) {
-    console.error('🥲 🥲 🥲 Failed to install dependencies...');
-    process.exit(1);
-  }
-};
-
-const createConfigFiles = (command: string): void => {
+const createConfigFiles = (command: string): boolean => {
   const rootDir = process.cwd();
-  const eslintConfig = fs.readFileSync(getSettingFilePath(command), 'utf-8');
-  const targetFilePath = path.join(rootDir, 'eslint.config.mjs');
-  try {
-    fs.writeFileSync(targetFilePath, eslintConfig, 'utf-8');
+  const configContent = getSettingFilePath(command);
+  
+  if (!configContent) {
+    console.error('❌ Failed to read ESLint configuration template');
+    return false;
+  }
+  
+  const configPath = `${rootDir}/eslint.config.mjs`;
+  
+  if (writeFileSafely(configPath, configContent)) {
     console.log('\n🎉 Successfully created the ESLint configuration file.');
-  } catch (error: unknown) {
-    fileErrorHandle(error, `Failed to create eslint.config.mjs file`);
+    return true;
+  } else {
+    console.error('🥲 🥲 🥲 Failed to setup eslint...');
+    return false;
+  }
+};
+
+/**
+ * Set up ESLint Config 
+ * @param {string} configType Config Type
+ * @param {string} command Command
+ * @returns {Promise<boolean>} true or false
+ */
+const setupEslintConfig = async (configType: string, command: string): Promise<boolean> => {
+  try {
+    await installEslintDependencies(configType);
+    return createConfigFiles(command);
+  } catch (error) {
+    console.error('Failed to setup ESLint configuration:', error);
+    return false;
   }
 };
 
 export {
-  installImportSortDependencies,
   createConfigFiles,
-  installAirbnbDependencies,
-  installGoogleDependencies,
-  installXODependencies,
+  setupEslintConfig,
 };
