@@ -4,8 +4,11 @@ import pluginVue from 'eslint-plugin-vue';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import pluginJs from '@eslint/js';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+
 
 export default [
+  jsxA11y.flatConfigs.recommended,
   {
     ignores: [
       '.yarn/**',
@@ -30,20 +33,18 @@ export default [
         ...globals.browser,
         ...globals.jest,
         ...globals['shared-node-browser'],
-        ...globals.es2015,
+        ...globals.es6,
       },
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
         },
-        parser: tseslint.parser,
-        extraFileExtensions: ['.vue'],
       },
     },
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  jsdoc.configs['flat/recommended'],
+  jsdoc.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
   {
     files: ['src/**/*.ts'],
@@ -72,6 +73,11 @@ export default [
         },
       ],
     },
+  },
+  {
+    rules: {
+      'jsx-a11y/control-has-associated-label': 'error',
+    }
   },
   {
     rules: {
