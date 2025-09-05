@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/in-ch/setup/compare/v0.0.7...v0.0.8) (2025-09-05)
+
+
+### Features
+
+* add adb remote command ([#2](https://github.com/in-ch/setup/issues/2)) ([6ff0916](https://github.com/in-ch/setup/commit/6ff09163543faeec7163157ba1ee8feb193f3402))
+* add checkIsMonorepo utils ([#1](https://github.com/in-ch/setup/issues/1)) ([86c9f30](https://github.com/in-ch/setup/commit/86c9f300ad46f03d2e492784b9391a8737aade4a))
+* add checkIsProjectRoot util ([768be3d](https://github.com/in-ch/setup/commit/768be3dd683314517dff70c7cee4cc007f42cb68))
+* add checkPkgInit util ([ac33cd5](https://github.com/in-ch/setup/commit/ac33cd55a440bd462024ff47d25c879f270b3885))
+* add env command ([2957d0e](https://github.com/in-ch/setup/commit/2957d0e7b4bc1032ed5cc7c60649b782298ab5e6))
+* add eslint-plugin-jsx-a11y config to eslint command ([5580b0b](https://github.com/in-ch/setup/commit/5580b0b9248bbf944ae5b81dea709deffe615dbe))
+* add input logic key & value to env command ([13732b6](https://github.com/in-ch/setup/commit/13732b6fbb48782faef47ea4d8d60fe83f8f8a8a))
+* check-what-ide-use lib ([#2](https://github.com/in-ch/setup/issues/2)) ([1de8d8b](https://github.com/in-ch/setup/commit/1de8d8b43f2c6d16542440985160872929b6d41b))
+* cursor rules command ([eafbf9a](https://github.com/in-ch/setup/commit/eafbf9a58f51983931e48ccc1ab2ff274eabbf68))
+* implement centralized file error handling and add error constants ([7947daa](https://github.com/in-ch/setup/commit/7947daac0f3df05a4e541a95417049b4539c8b32))
+* support monorepo-aware package installation ([#1](https://github.com/in-ch/setup/issues/1)) ([606aabb](https://github.com/in-ch/setup/commit/606aabbffbdad5aa98e59d0f770a78e7c833d5df))
+
+
+### Bug Fixes
+
+* e2e error ([83ca2f8](https://github.com/in-ch/setup/commit/83ca2f8031a7debd58ee99330b0ada89d92e296b))
+* error: Dynamic require of "fs" is not supported ([efb6ba3](https://github.com/in-ch/setup/commit/efb6ba35646e68c051f75bdab117ab9b0700ebc4))
+* path error ([2e84c19](https://github.com/in-ch/setup/commit/2e84c19de8aa48e2dc9be1f8962575040db4c364))
+* prevent unnecessary options by filtering init commands case-insensitivel ([da3cd1b](https://github.com/in-ch/setup/commit/da3cd1b865e4feda11dbdc93fae965014aa2f68a))
+* update moduleNameMapper paths in jest.config.ts to reflect new directory structure ([dcfe40c](https://github.com/in-ch/setup/commit/dcfe40cd6f79e0f8f3f117fb7b5d1f1445741e52))
+
 ### [0.0.7](https://github.com/in-ch/setup/compare/v0.0.6...v0.0.7) (2025-03-12)
 
 
