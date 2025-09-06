@@ -22,7 +22,7 @@ export const listCli = new Command()
     let match;
     const results: Array<{ command: string; description: string }> = [];
     while ((match = commandDescriptionPattern.exec(fileContent)) !== null) {
-      const command = match[1] as string;
+      const command = (match[1] as string).split('"')[0] as string;
       const description = match[2] as string;
       results.push({ command, description });
     }
