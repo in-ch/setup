@@ -29,6 +29,7 @@ Save time and automate your setup process with the following commands:
 | `edit`       | Edits existing configuration files.           |
 | `init`       | Creates multiple configuration files at once. |
 | `list`       | Lists all available commands.                 |
+| `adb-remote` | Connect to ADB device wirelessly.             |
 
 ### Installation
 
@@ -70,6 +71,9 @@ ics edit
 
 # List all available commands
 ics list
+
+# Connect to ADB device wirelessly.
+ics adb-remote
 ```
 
 ### Why Use @in-ch/setup?
