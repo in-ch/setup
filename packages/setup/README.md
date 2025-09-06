@@ -20,16 +20,22 @@ Save time and automate your setup process with the following commands:
 
 | **Command**  | **Description**                               |
 | ------------ | --------------------------------------------- |
-| `husky`      | Creates Husky configuration files.            |
+| `adb-remote` | Connect to ADB device wirelessly.             |
+| `pkgmng`     | Initialize package manager.                   |
 | `eslint`     | Generates ESLint configuration files.         |
 | `gitmessage` | Creates a Git message template file.          |
+| `husky`      | Setup husky.                                  |
 | `prettier`   | Sets up Prettier configuration files.         |
 | `typescript` | Creates TypeScript configuration files.       |
 | `commitlint` | Adds Commitlint configuration.                |
 | `edit`       | Edits existing configuration files.           |
+| `env`        | create .env file.                             |
 | `init`       | Creates multiple configuration files at once. |
+| `latest`     | Check latest version of @in-ch/cli package.   |
+| `lighthouse` | Run a Lighthouse test.                        |
 | `list`       | Lists all available commands.                 |
-| `adb-remote` | Connect to ADB device wirelessly.             |
+| `update`     | Update package version.                       |
+| `autoPrefix` | Update VSCode Auto Prefix Settings.           |
 
 ### Installation
 
