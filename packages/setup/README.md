@@ -20,6 +20,7 @@ Save time and automate your setup process with the following commands:
 
 | **Command**  | **Description**                               |
 | ------------ | --------------------------------------------- |
+| `adb-reload` | Reload ADB device.                            |
 | `adb-remote` | Connect to ADB device wirelessly.             |
 | `pkgmng`     | Initialize package manager.                   |
 | `eslint`     | Generates ESLint configuration files.         |
