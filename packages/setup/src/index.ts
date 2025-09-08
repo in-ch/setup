@@ -1,6 +1,7 @@
 import { Command } from 'commander';
 import checkPkgInit from 'lib/check-pkg-init.js';
 import { getPackageInfo } from 'lib/get-package-info.ts';
+import { adbReloadCli } from 'src/commands/adb-reload.ts';
 import { adbRemoteCli } from 'src/commands/adb-remote.ts';
 import { commitlintCli } from 'src/commands/commitlint.ts';
 import { cursorRuleCli } from 'src/commands/cursor-rule.ts';
@@ -47,6 +48,7 @@ async function main() {
     program.addCommand(envCli);
     program.addCommand(cursorRuleCli);
     program.addCommand(adbRemoteCli);
+    program.addCommand(adbReloadCli);
     program.parse();
   } else {
     console.log('❌ No package manager initialized in this directory.');

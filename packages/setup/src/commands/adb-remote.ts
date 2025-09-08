@@ -67,6 +67,7 @@ export const adbRemoteCli = new Command()
       if (error instanceof Error && error.message.includes('adb: command not found')) {
         console.log(`Make sure ADB is installed and added to your PATH.`);
         console.log(`You can install it via Android SDK Platform Tools.`);
+        console.log(`Download from: https://developer.android.com/studio/releases/platform-tools`);
       }
     }
   });
