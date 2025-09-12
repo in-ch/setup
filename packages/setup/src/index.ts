@@ -14,6 +14,7 @@ import { initCli } from 'src/commands/init.ts';
 import { latestCli } from 'src/commands/latest.ts';
 import { lighthouseCli } from 'src/commands/lighthouse.ts';
 import { listCli } from 'src/commands/list.ts';
+import { mcpCli } from 'src/commands/mcp.ts';
 import { pkgmngCli } from 'src/commands/pkgmng.ts';
 import { prettierCli } from 'src/commands/prettier.ts';
 import { typescriptCli } from 'src/commands/typescript.ts';
@@ -49,6 +50,7 @@ async function main() {
     program.addCommand(cursorRuleCli);
     program.addCommand(adbRemoteCli);
     program.addCommand(adbReloadCli);
+    program.addCommand(mcpCli);
     program.parse();
   } else {
     console.log('❌ No package manager initialized in this directory.');
