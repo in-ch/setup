@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
 import fs, { existsSync } from 'fs';
-import versionCheckAndUpdate from 'lib/version-update.js';
+import versionCheckAndUpdate from 'lib/version-update.ts';
 import path from 'path';
 
 export const mcpCli = new Command()
