@@ -16,17 +16,27 @@
 `@in-ch/setup` is a powerful tool for quickly setting up various project files and configurations.
 Save time and automate your setup process with the following commands:
 
-| **Command**  | **Description**                               |
-| ------------ | --------------------------------------------- |
-| `husky`      | Creates Husky configuration files.            |
-| `eslint`     | Generates ESLint configuration files.         |
-| `gitmessage` | Creates a Git message template file.          |
-| `prettier`   | Sets up Prettier configuration files.         |
-| `typescript` | Creates TypeScript configuration files.       |
-| `commitlint` | Adds Commitlint configuration.                |
-| `edit`       | Edits existing configuration files.           |
-| `init`       | Creates multiple configuration files at once. |
-| `list`       | Lists all available commands.                 |
+| **Command**  | **Description**                                   |
+| ------------ | ------------------------------------------------- |
+| `adb-reload` | Reload ADB device                                 |
+| `adb-remote` | Connect to ADB device wirelessly                  |
+| `icc`        | Setup claude code                                 |
+| `pkgmng`     | Initialize package manager                        |
+| `eslint`     | Setup eslint file                                 |
+| `gitmessage` | Setup git message file                            |
+| `husky`      | Setup husky                                       |
+| `prettier`   | Setup prettier file                               |
+| `typescript` | Setup typescript file                             |
+| `commitlint` | Setup commit lint                                 |
+| `edit`       | edit config file                                  |
+| `env`        | create .env file                                  |
+| `init`       | Easy Setup various configs                        |
+| `latest`     | Check latest version of @in-ch/cli package        |
+| `lighthouse` | Run a Lighthouse test                             |
+| `list`       | list all commands                                 |
+| `mcp`        | Setup MCP (Model Context Protocol) configurations |
+| `update`     | Update package version                            |
+| `autoPrefix` | Update VSCode Auto Prefix Settings                |
 
 ### Installation
 
@@ -68,6 +78,8 @@ ics edit
 
 # List all available commands
 ics list
+
+# to many other commands...
 ```
 
 ### Why Use @in-ch/setup?
