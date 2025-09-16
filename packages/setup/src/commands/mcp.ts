@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
 import fs, { existsSync } from 'fs';
+import alertExperimentalWarning from 'lib/alert-experimental-warning.ts';
+import setupGitHubMCP from 'lib/setup-mcp-github.ts';
 import versionCheckAndUpdate from 'lib/version-update.ts';
 import path from 'path';
 
@@ -11,6 +13,7 @@ export const mcpCli = new Command()
   .option('--github', 'Setup GitHub MCP configuration')
   .option('--all', 'Setup all available MCP configurations')
   .action(async options => {
+    alertExperimentalWarning();
     await versionCheckAndUpdate();
 
     const rootDir = process.cwd();
@@ -37,7 +40,7 @@ export const mcpCli = new Command()
     } else if (options.figma) {
       // TODO: Setting up Figma MCP configuration
     } else if (options.github) {
-      // TODO: Setting up GitHub MCP configuration
+      setupGitHubMCP(mcpDir);
     } else {
       console.log('MCP directory initialized. Use --figma, --github, or --all to setup specific configurations.');
     }
